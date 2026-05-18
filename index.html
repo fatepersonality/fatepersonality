@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FATE診断 | 被服行動尺度</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="メインナビゲーション">
+        <a class="site-nav__brand" href="index.html" aria-label="FATE診断 ホーム">
+          <img src="assets/logo/fate-logo.svg" alt="FATE診断" />
+        </a>
+        <div class="site-nav__links">
+          <a href="index.html">診断</a>
+          <a href="about.html">FATE診断とは</a>
+          <a href="fashion-types.html">ファッションタイプ</a>
+        </div>
+      </nav>
+    </header>
+
+    <header class="hero">
+      <div class="hero__inner">
+        <p class="eyebrow">Find Your Fashion Compass</p>
+        <h1>FATE診断</h1>
+        <p class="lead">
+          なんとなく選んでいる服にも、ちゃんと理由がある。
+          FATE診断は、あなたの「好き」「似合う」「選びがち」を16タイプでひもとくファッション診断です。
+        </p>
+        <div class="hero__meta" aria-label="診断概要">
+          <span>45問</span>
+          <span>7段階回答</span>
+          <span>16タイプ</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel intro" aria-labelledby="intro-title">
+        <div>
+          <h2 id="intro-title">直感で選んでください</h2>
+          <p>
+            服を選ぶときの考え方や、写真の靴から受ける印象について答えてください。
+            最後に、あなたの服選びのクセを4文字コードとキャラクターで表示します。
+          </p>
+        </div>
+        <div class="response-preview" aria-label="回答形式の例">
+          <span>そう思う</span>
+          <div class="preview-dots" aria-hidden="true">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+          <span>そう思わない</span>
+        </div>
+      </section>
+
+      <form id="quiz" class="quiz" novalidate></form>
+      <form id="photo-step" class="quiz" novalidate hidden></form>
+
+      <section id="contact-step" class="panel contact-step" hidden>
+        <p class="eyebrow">Almost Done</p>
+        <h2>診断結果を受け取る</h2>
+        <p class="contact-step__copy">
+          回答内容を記録します。診断結果をメールで保存したい方は、メールアドレスも入力してください。
+        </p>
+        <form id="contact-form" class="contact-form" novalidate>
+          <label>
+            <span>名前</span>
+            <input id="user-name" name="name" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            <span>メールアドレス（任意）</span>
+            <input id="user-email" name="email" type="email" autocomplete="email" />
+          </label>
+          <label>
+            <span>年齢</span>
+            <select id="user-age" name="age" required>
+              <option value="">選択してください</option>
+            </select>
+          </label>
+          <label>
+            <span>スニーカーの購入頻度</span>
+            <select id="sneaker-frequency" name="sneakerFrequency" required>
+              <option value="">選択してください</option>
+              <option value="めったに行かない(1年に1回程度)">めったに行かない(1年に1回程度)</option>
+              <option value="たまに行く(1年に2回以上)">たまに行く(1年に2回以上)</option>
+              <option value="時々行く(1年に4回以上)">時々行く(1年に4回以上)</option>
+              <option value="よく行く(1年に6回以上)">よく行く(1年に6回以上)</option>
+              <option value="頻繁に行く(1年に10回以上)">頻繁に行く(1年に10回以上)</option>
+            </select>
+          </label>
+          <fieldset class="handedness-field">
+            <legend>利き手</legend>
+            <label>
+              <input type="radio" name="handedness" value="右" required />
+              <span>右</span>
+            </label>
+            <label>
+              <input type="radio" name="handedness" value="左" required />
+              <span>左</span>
+            </label>
+          </fieldset>
+          <label class="consent-field">
+            <input id="privacy-consent" name="privacyConsent" type="checkbox" required />
+            <span>個人情報は研究目的以外のために第三者へ共有されません</span>
+          </label>
+          <p id="contact-error" class="form-error"></p>
+          <div class="form-actions">
+            <button class="secondary" type="button" id="back-to-quiz">回答を修正する</button>
+            <button class="primary" type="submit" id="send-result" disabled>診断結果を見る</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="result" class="result" aria-live="polite" hidden>
+        <div class="profile-hero">
+          <h2>あなたのプロフィール</h2>
+          <p>FATE診断の結果を確認して、あなたの服選びの中心的な傾向を見てみましょう。</p>
+        </div>
+
+        <div class="profile-layout">
+          <article class="type-card">
+            <p class="type-card__label">被服行動タイプ</p>
+            <h3><span id="type-name"></span> <small id="type-code"></small></h3>
+            <div class="avatar" aria-hidden="true">
+              <img id="type-avatar" src="" alt="" />
+            </div>
+            <p id="character-name" class="character-name"></p>
+            <p id="type-copy" class="type-copy"></p>
+          </article>
+
+          <div class="traits-panel">
+            <div class="traits-panel__head">
+              <h3>被服行動特性</h3>
+            </div>
+            <div id="score-list" class="trait-list"></div>
+            <div class="result-date">診断日：<span id="result-date"></span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>永野（1994）女子大学生基準の平均点を50%として換算しています。</p>
+      <p>Copyright © 2026 FATE All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

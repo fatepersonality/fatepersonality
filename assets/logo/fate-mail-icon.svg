@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">FATEメールアイコン</title>
+  <desc id="desc">FATE診断のメールアイコン用正方形ロゴ</desc>
+  <defs>
+    <linearGradient id="bg" x1="166" y1="132" x2="858" y2="892" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2fa06e"/>
+      <stop offset="0.45" stop-color="#d7a92f"/>
+      <stop offset="1" stop-color="#855f99"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="62%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".92"/>
+      <stop offset=".55" stop-color="#fff" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="32" flood-color="#202124" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" rx="224" fill="#f7f7f4"/>
+  <circle cx="512" cy="512" r="400" fill="url(#bg)" filter="url(#shadow)"/>
+  <circle cx="512" cy="512" r="338" fill="#fff" opacity=".94"/>
+  <circle cx="512" cy="512" r="292" fill="#f7f7f4"/>
+  <path d="M512 190l79 243 243 79-243 79-79 243-79-243-243-79 243-79z" fill="url(#bg)"/>
+  <path d="M512 304l50 158 158 50-158 50-50 158-50-158-158-50 158-50z" fill="#fff" opacity=".92"/>
+  <circle cx="512" cy="512" r="68" fill="#303643"/>
+  <circle cx="244" cy="244" r="54" fill="#2fa06e" stroke="#fff" stroke-width="22"/>
+  <circle cx="780" cy="244" r="54" fill="#d7a92f" stroke="#fff" stroke-width="22"/>
+  <circle cx="780" cy="780" r="54" fill="#855f99" stroke="#fff" stroke-width="22"/>
+  <circle cx="244" cy="780" r="54" fill="#c9412d" stroke="#fff" stroke-width="22"/>
+  <circle cx="512" cy="512" r="400" fill="url(#glow)"/>
+</svg>
