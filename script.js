@@ -479,6 +479,7 @@ function showResult(scores) {
   document.querySelector("#type-code").textContent = `(${code})`;
   document.querySelector("#type-name").textContent = name;
   document.querySelector("#type-copy").textContent = copy;
+  document.querySelector("#type-detail-link").href = `type-detail.html?type=${code}`;
   renderCharacter(code);
   document.querySelector("#result-date").textContent = new Intl.DateTimeFormat("ja-JP", {
     year: "numeric",
