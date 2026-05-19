@@ -775,6 +775,36 @@ main {
   justify-content: flex-start;
 }
 
+.share-callout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+  width: min(760px, 100%);
+  margin: 24px auto 0;
+  padding: 18px 24px;
+  border: 1px solid rgba(95, 159, 186, 0.28);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(95, 159, 186, 0.12), rgba(133, 95, 153, 0.12));
+  color: #303643;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.share-callout p {
+  margin: 0;
+  font-size: clamp(1rem, 1.8vw, 1.22rem);
+  font-weight: 800;
+}
+
+.share-callout strong {
+  color: var(--disagree);
+  font-size: clamp(1.08rem, 2vw, 1.35rem);
+  font-weight: 900;
+}
+
+
 footer {
   padding: 0 0 34px;
   color: var(--muted);
