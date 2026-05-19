@@ -139,6 +139,9 @@ const commonQuestionTexts = [
   "話題性のあるスニーカーを購入したい。",
 ];
 
+const photoFreeTextQuestion =
+  "写真Nのスニーカーの置き方・見え方について、良いと思った点や気になった点を記入してください。(10文字以上)";
+
 const photoSets = [
   {
     key: "R",
@@ -161,12 +164,13 @@ const contactStep = document.querySelector("#contact-step");
 const contactForm = document.querySelector("#contact-form");
 const contactError = document.querySelector("#contact-error");
 const result = document.querySelector("#result");
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxDgTWI8XLrVb2zXV_23qw3Pv7zug3ZNclRtJKcTXTCx34IGSws-O0hyqLqlHaKqBbr/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzrq6SdJCpKCTUZdlOo1lfHR6iMeaREpLtN9aqHfgox_A3RwBb3Whkj719YNl86S8tn/exec";
 
 let pendingScores = null;
 let pendingAnswers = null;
 let pendingPhotoAnswers = null;
 let pendingCommonAnswers = null;
+let pendingPhotoFreeTextAnswer = null;
 let selectedPhotoSet = null;
 let photoAssignmentSequence = null;
 
@@ -232,10 +236,12 @@ function renderPhotoStep(photo) {
     fragment.append(createQuestionCard(id, text));
   });
 
+  fragment.append(createFreeTextCard(photoFreeTextQuestion.replaceAll("写真N", photo.label)));
+
   const error = document.createElement("p");
   error.className = "form-error";
   error.id = "photo-form-error";
-  error.textContent = "未回答の項目があります。25問すべてに回答してください。";
+  error.textContent = "未回答の項目があります。25問すべてに回答し、自由記述を10文字以上で入力してください。";
 
   const actions = document.createElement("div");
   actions.className = "actions";
@@ -283,6 +289,18 @@ function createQuestionCard(id, text) {
         .join("")}
       <span class="choice-label choice-label--disagree">そう思わない</span>
     </div>
+  `;
+  return card;
+}
+
+function createFreeTextCard(text) {
+  const card = document.createElement("div");
+  card.className = "question-card free-text-card";
+  card.innerHTML = `
+    <label class="free-text-field" for="photo-free-text">
+      <span>${text}</span>
+      <textarea id="photo-free-text" name="photoFreeText" rows="5" minlength="10" required></textarea>
+    </label>
   `;
   return card;
 }
@@ -356,6 +374,18 @@ function collectCommonAnswers() {
       ];
     }),
   );
+}
+
+function collectPhotoFreeTextAnswer() {
+  const textarea = photoStep.querySelector("#photo-free-text");
+  const question = photoFreeTextQuestion.replaceAll("写真N", selectedPhotoSet.label);
+
+  return {
+    photo: selectedPhotoSet.label,
+    photoKey: selectedPhotoSet.key,
+    question,
+    value: textarea.value.trim(),
+  };
 }
 
 function getQuestionNames() {
@@ -511,6 +541,7 @@ function buildSubmission(user, scores) {
     answers: pendingAnswers,
     photoAnswers: pendingPhotoAnswers,
     commonAnswers: pendingCommonAnswers,
+    photoFreeTextAnswer: pendingPhotoFreeTextAnswer,
     photoAssignment: {
       sequence: photoAssignmentSequence,
       photoKey: selectedPhotoSet.key,
@@ -648,6 +679,7 @@ quiz.addEventListener("reset", () => {
   pendingAnswers = null;
   pendingPhotoAnswers = null;
   pendingCommonAnswers = null;
+  pendingPhotoFreeTextAnswer = null;
   selectedPhotoSet = null;
   photoAssignmentSequence = null;
 });
@@ -663,17 +695,28 @@ photoStep.addEventListener("submit", (event) => {
   const error = document.querySelector("#photo-form-error");
   const questionNames = getPhotoQuestionNames();
   const answered = photoStep.querySelectorAll("input[type='radio']:checked").length;
+  const freeText = photoStep.querySelector("#photo-free-text");
+  const freeTextValue = freeText.value.trim();
 
   if (answered !== questionNames.length) {
     error.classList.add("is-visible");
+    error.textContent = "未回答の項目があります。25問すべてに回答し、自由記述を10文字以上で入力してください。";
     const firstMissing = questionNames.find((name) => !photoStep.querySelector(`input[name="${name}"]:checked`));
     photoStep.querySelector(`input[name="${firstMissing}"]`)?.focus();
+    return;
+  }
+
+  if (freeTextValue.length < 10) {
+    error.classList.add("is-visible");
+    error.textContent = "自由記述は10文字以上で入力してください。";
+    freeText.focus();
     return;
   }
 
   error.classList.remove("is-visible");
   pendingPhotoAnswers = collectPhotoAnswers();
   pendingCommonAnswers = collectCommonAnswers();
+  pendingPhotoFreeTextAnswer = collectPhotoFreeTextAnswer();
   photoStep.hidden = true;
   contactStep.hidden = false;
   contactStep.scrollIntoView({ behavior: "smooth", block: "start" });
