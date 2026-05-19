@@ -173,6 +173,7 @@ let pendingCommonAnswers = null;
 let pendingPhotoFreeTextAnswer = null;
 let selectedPhotoSet = null;
 let photoAssignmentSequence = null;
+let fallbackPhotoAssignmentCount = null;
 
 function scorePercent(total, mean) {
   if (total <= mean) {
@@ -567,8 +568,22 @@ async function submitToGoogle(payload) {
 
 function getFallbackPhotoAssignment() {
   const key = "fatePhotoAssignmentCount";
-  const count = Number(localStorage.getItem(key) || "0") + 1;
-  localStorage.setItem(key, String(count));
+  const firstCount = () => (crypto.getRandomValues(new Uint8Array(1))[0] % 2 === 0 ? 1 : 2);
+  let count;
+
+  try {
+    const stored = Number(localStorage.getItem(key));
+    count = Number.isFinite(stored) && stored > 0 ? stored + 1 : firstCount();
+    localStorage.setItem(key, String(count));
+  } catch (error) {
+    if (!fallbackPhotoAssignmentCount) {
+      fallbackPhotoAssignmentCount = firstCount();
+    } else {
+      fallbackPhotoAssignmentCount += 1;
+    }
+    count = fallbackPhotoAssignmentCount;
+  }
+
   return {
     sequence: count,
     photoKey: count % 2 === 1 ? "R" : "L",
