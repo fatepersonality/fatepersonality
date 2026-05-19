@@ -205,7 +205,8 @@ main {
 }
 
 .contact-form input,
-.contact-form select {
+.contact-form select,
+.free-text-field textarea {
   width: 100%;
   min-height: 48px;
   border: 1px solid var(--line);
@@ -216,7 +217,8 @@ main {
 }
 
 .contact-form input:focus,
-.contact-form select:focus {
+.contact-form select:focus,
+.free-text-field textarea:focus {
   border-color: var(--accent-2);
   outline: 3px solid rgba(47, 160, 110, 0.2);
 }
@@ -409,6 +411,29 @@ main {
   line-height: 1.65;
   overflow-wrap: anywhere;
   word-break: normal;
+}
+
+.free-text-card {
+  padding-bottom: 34px;
+}
+
+.free-text-field {
+  display: grid;
+  gap: 14px;
+}
+
+.free-text-field span {
+  color: #2d3340;
+  font-size: clamp(0.98rem, 1.12vw, 1.18rem);
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.free-text-field textarea {
+  min-height: 150px;
+  resize: vertical;
+  font: inherit;
+  line-height: 1.7;
 }
 
 .choices {
