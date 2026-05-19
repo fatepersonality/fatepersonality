@@ -567,7 +567,7 @@ main {
 
 .type-card {
   display: grid;
-  grid-template-rows: auto auto minmax(360px, 1fr) auto auto;
+  grid-template-rows: auto auto minmax(360px, 1fr) auto auto auto;
   min-height: 520px;
   padding: 24px 0 30px;
   border-top: 5px solid var(--disagree);
@@ -630,6 +630,33 @@ main {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.75;
+}
+
+.type-detail-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  min-height: 46px;
+  margin: 20px 28px 0;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: #303643;
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(48, 54, 67, 0.16);
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.type-detail-button:hover {
+  background: var(--disagree);
+  box-shadow: 0 14px 24px rgba(133, 95, 153, 0.22);
+  transform: translateY(-1px);
 }
 
 .traits-panel {
@@ -1353,7 +1380,7 @@ footer {
 
   .type-card {
     min-height: auto;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
   }
 
   .avatar {
