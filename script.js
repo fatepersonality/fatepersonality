@@ -164,7 +164,7 @@ const contactStep = document.querySelector("#contact-step");
 const contactForm = document.querySelector("#contact-form");
 const contactError = document.querySelector("#contact-error");
 const result = document.querySelector("#result");
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzrq6SdJCpKCTUZdlOo1lfHR6iMeaREpLtN9aqHfgox_A3RwBb3Whkj719YNl86S8tn/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxDgTWI8XLrVb2zXV_23qw3Pv7zug3ZNclRtJKcTXTCx34IGSws-O0hyqLqlHaKqBbr/exec";
 
 let pendingScores = null;
 let pendingAnswers = null;
