@@ -15,6 +15,13 @@ const scales = [
       "吸湿性の良い生地の服を選ぶ",
       "丈夫で長持ちする服が良い",
     ],
+    questionsEn: [
+      "I prioritize ease of movement over clothing design.",
+      "I choose clothes with good warmth retention or breathability.",
+      "I prioritize functionality over flashiness when choosing clothes.",
+      "I choose clothes made from fabrics with good moisture absorption.",
+      "I prefer clothes that are durable and long-lasting.",
+    ],
   },
   {
     key: "A",
@@ -31,6 +38,13 @@ const scales = [
       "その時の仕事の内容にふさわしい服装をするようにしている",
       "人が「場違いな」服装をしているのを見ることは耐え難い",
       "自分の着ている衣服が社会的にみてふさわしいものであるかどうかをいつも考える",
+    ],
+    questionsEn: [
+      "I do not want to wear clothing that others might see as inappropriate.",
+      "I think it is necessary to dress appropriately for each situation.",
+      "I try to dress in a way that fits the work or task I am doing.",
+      "I find it hard to tolerate seeing someone dressed out of place.",
+      "I often think about whether my clothing is socially appropriate.",
     ],
   },
   {
@@ -49,6 +63,13 @@ const scales = [
       "ファッション雑誌をよく読む",
       "自分自身を人と区別してより個性的に見せるために流行している服を着る",
     ],
+    questionsEn: [
+      "I visit many stores to learn about the latest fashion.",
+      "I always try to wear the latest fashion.",
+      "I know well what kinds of fashion are currently popular.",
+      "I often read fashion magazines.",
+      "I wear trendy clothes to distinguish myself and look more individual.",
+    ],
   },
   {
     key: "E",
@@ -66,6 +87,13 @@ const scales = [
       "多少値段が高くても品質の良い衣服を選ぶ",
       "自分にとって高価な衣服は必要がないと思う",
       "どんなに気に入った服でも高ければ買わない",
+    ],
+    questionsEn: [
+      "If clothes are inexpensive, I may buy them even if I do not fully like them.",
+      "I more often buy clothes at supermarkets than at department stores or boutiques.",
+      "I choose high-quality clothes even if they are somewhat expensive.",
+      "I do not think expensive clothes are necessary for me.",
+      "No matter how much I like an item, I will not buy it if it is expensive.",
     ],
   },
 ];
@@ -88,6 +116,26 @@ const typeProfiles = {
   OAEP: ["自由デザイナー", "自分らしい見た目を大切にし、価格感覚もある型"],
   OAEQ: ["シグネチャー・アーティスト", "流行や常識に縛られず、自分の世界観と上質さを貫く型"],
 };
+
+const typeProfilesEn = {
+  TFCP: ["Balance Captain", "A versatile type who balances trend, function, context, and price with practical judgment."],
+  TFCQ: ["Quality Strategist", "A type who understands trends and TPO while investing in lasting quality."],
+  OFCP: ["Classic Planner", "A steady type who avoids chasing trends and makes reliable, low-risk choices."],
+  OFCQ: ["Heritage Curator", "A type who values classic style, quality, and a polished sense of propriety."],
+  TFEP: ["Street Engineer", "A type who combines freedom, function, and trend in an active streetwise way."],
+  TFEQ: ["Urban Inventor", "A type who mixes individuality, trend, function, and quality in their own way."],
+  OFEP: ["Utility Crafter", "A type who prioritizes usability, comfort, and cost performance over trends."],
+  OFEQ: ["Gear Artisan", "A type who pursues their own standards of function, durability, and quality."],
+  TACP: ["Smart Stylist", "A type who values appearance while keeping trends and context in mind."],
+  TACQ: ["Luxury Director", "A polished type who values appearance, TPO, trends, and quality."],
+  OACP: ["Simple Coordinator", "A type who values harmony between appearance and context without being led by trends."],
+  OACQ: ["Elegant Collector", "A type who quietly enjoys personal taste, refinement, and quality."],
+  TAEP: ["Pop Messenger", "A type who freely enjoys trends and expression while keeping price in mind."],
+  TAEQ: ["Mode Star", "A vivid type who enjoys trend, self-expression, and quality."],
+  OAEP: ["Free Designer", "A type who values their own look and expression while keeping a realistic sense of price."],
+  OAEQ: ["Signature Artist", "A type who follows their own worldview and quality standards beyond trends or conventions."],
+};
+
 const typeShareDetails = {
   TFCP: {
     features: ["流行をほどよく取り入れる", "動きやすさとTPOの両方を見る", "価格感覚があり買い物上手"],
@@ -171,6 +219,89 @@ const typeShareDetails = {
   },
 };
 
+const typeShareDetailsEn = {
+  TFCP: {
+    features: ["Adds trends in a balanced way", "Checks both comfort and TPO", "Good at smart, price-conscious shopping"],
+    match: "OACQ: Elegant Collector",
+    caution: "Trying to balance everything can make decisions harder.",
+  },
+  TFCQ: {
+    features: ["Balances trend and quality", "Cares about practical function", "Chooses quality that fits the occasion"],
+    match: "OAEP: Free Designer",
+    caution: "Searching for the best item can make shopping take longer.",
+  },
+  OFCP: {
+    features: ["Not easily swayed by trends", "Values practicality and safe choices", "Makes steady choices with fewer regrets"],
+    match: "TAEQ: Mode Star",
+    caution: "Safe choices can sometimes hide fresh possibilities.",
+  },
+  OFCQ: {
+    features: ["Likes classic, quality items", "Naturally creates a polished look", "Chooses pieces that last"],
+    match: "TAEP: Pop Messenger",
+    caution: "Aiming for perfection can make outfits feel less playful.",
+  },
+  TFEP: {
+    features: ["Combines trend and function", "Enjoys free styling", "Strong at practical city outfits"],
+    match: "OACQ: Elegant Collector",
+    caution: "Too much freedom can sometimes feel out of place.",
+  },
+  TFEQ: {
+    features: ["Mixes individuality and trend", "Does not easily compromise on quality", "Enjoys trying new combinations"],
+    match: "OACP: Simple Coordinator",
+    caution: "Too many ideas can make an outfit feel busy.",
+  },
+  OFEP: {
+    features: ["Prioritizes ease of use", "Balances price and function well", "Chooses clothes that fit real life"],
+    match: "TACQ: Luxury Director",
+    caution: "Practicality may push excitement or visual impact aside.",
+  },
+  OFEQ: {
+    features: ["Deeply pursues function and quality", "Values gear-like usefulness", "Chooses by conviction rather than trend"],
+    match: "TACP: Smart Stylist",
+    caution: "Strong standards can narrow your options too much.",
+  },
+  TACP: {
+    features: ["Balances appearance and context", "Keeps trends looking polished", "Thinks about first impressions"],
+    match: "OFEQ: Gear Artisan",
+    caution: "Worrying about how others see you can become tiring.",
+  },
+  TACQ: {
+    features: ["Creates a refined impression", "Handles trend and quality elegantly", "Brings presence that fits the setting"],
+    match: "OFEP: Utility Crafter",
+    caution: "High polish can make casual moments feel less relaxed.",
+  },
+  OACP: {
+    features: ["Values a calm appearance", "Blends naturally with the situation", "Not easily pushed around by trends"],
+    match: "TFEQ: Urban Inventor",
+    caution: "Keeping things subtle can make your individuality harder to see.",
+  },
+  OACQ: {
+    features: ["Values personal taste", "Chooses elegant, quality pieces", "Shows quiet attention to detail"],
+    match: "TFEP: Street Engineer",
+    caution: "Protecting your ideal look can make change feel difficult.",
+  },
+  TAEP: {
+    features: ["Enjoys trends freely", "Can experiment without overspending", "Has a bright, expressive shopping style"],
+    match: "OFCQ: Heritage Curator",
+    caution: "Impulse choices may feel hard to use later.",
+  },
+  TAEQ: {
+    features: ["Leaves a vivid impression", "Enjoys trend and quality with personality", "Uses fashion to express a worldview"],
+    match: "OFCP: Classic Planner",
+    caution: "Too many statement pieces can be hard to wear daily.",
+  },
+  OAEP: {
+    features: ["Values a look that feels personal", "Still keeps price balance in mind", "Chooses by mood and expression"],
+    match: "TFCQ: Quality Strategist",
+    caution: "Mood-first choices may not always fit the situation.",
+  },
+  OAEQ: {
+    features: ["Keeps a unique worldview", "Values quality and aesthetic standards", "Creates a style others cannot easily copy"],
+    match: "TFCP: Balance Captain",
+    caution: "Strong personal standards may be hard for others to understand.",
+  },
+};
+
 const characterProfiles = {
   TFCP: ["キャプテン・バランサー", "#2f9f7f", "#d9ad3c", "cap", "chart"],
   TFCQ: ["シルク参謀", "#4467a8", "#c9a55a", "glasses", "tablet"],
@@ -206,6 +337,22 @@ const photoQuestionTexts = [
   "写真Nのスニーカーは手に取りやすいと感じる。",
 ];
 
+const photoQuestionTextsEn = [
+  "The sneaker in Photo N looks like a trustworthy product.",
+  "The sneaker in Photo N appears to be well made.",
+  "The sneaker in Photo N seems to be high quality.",
+  "The sneaker in Photo N feels clean.",
+  "The sneaker in Photo N looks sophisticated.",
+  "I would be likely to purchase the sneaker in Photo N.",
+  "If I were buying sneakers, I would consider the product in Photo N.",
+  "The way the sneaker is displayed in Photo N is easy to view.",
+  "The display in Photo N makes it easy to check the sneaker design.",
+  "The display in Photo N makes it easy to understand the sneaker shape and silhouette.",
+  "The display in Photo N communicates the appeal of the sneaker.",
+  "The display in Photo N is helpful when comparing products.",
+  "The sneaker in Photo N feels easy to pick up.",
+];
+
 const commonQuestionTexts = [
   "スニーカーを購入する際、実際の店舗で商品を確認したい。",
   "店舗スタッフの対応が丁寧であれば、その店舗で購入したいと思う。",
@@ -221,21 +368,42 @@ const commonQuestionTexts = [
   "話題性のあるスニーカーを購入したい。",
 ];
 
+const commonQuestionTextsEn = [
+  "When buying sneakers, I want to check the product in a physical store.",
+  "If the store staff are polite and helpful, I would want to buy from that store.",
+  "If I am satisfied with the store staff, I would use that store again.",
+  "Seeing the product in a store helps me buy with confidence.",
+  "I would rather buy sneakers online than in a physical store.",
+  "I trust sneaker information on online shops.",
+  "I want to save as much time as possible by buying online.",
+  "If there are enough photos and reviews, I can buy sneakers online.",
+  "I want to wear popular sneakers.",
+  "I tend to notice sneakers that are popular around me.",
+  "I am attracted to sneakers that not many people are wearing yet.",
+  "I want to buy sneakers that are getting attention.",
+];
+
 const photoFreeTextQuestion =
   "写真Nのスニーカーの置き方・見え方について、良いと思った点や気になった点を記入してください。(10文字以上)";
+const photoFreeTextQuestionEn =
+  "Please write what you liked or noticed about the way the sneaker in Photo N is displayed or looks. (At least 10 characters)";
 
 const photoSets = [
   {
     key: "R",
     label: "写真1",
+    labelEn: "Photo 1",
     image: "assets/photos/photo1-right.png",
     alt: "写真1の靴売り場",
+    altEn: "Sneaker store display in Photo 1",
   },
   {
     key: "L",
     label: "写真2",
+    labelEn: "Photo 2",
     image: "assets/photos/photo2-left.png",
     alt: "写真2の靴売り場",
+    altEn: "Sneaker store display in Photo 2",
   },
 ];
 
@@ -248,6 +416,14 @@ const contactError = document.querySelector("#contact-error");
 const result = document.querySelector("#result");
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwL_JMNAk0XwenQPyFCwxOaVIaTHUPOJOhe-EQ3Xgxy83dAc8TYMD6c1zBlS33gc_eE1w/exec";
 const SITE_URL = "https://fatepersonality.github.io/fatepersonality/index.html";
+const supportedLangs = ["ja", "en"];
+const urlLang = new URLSearchParams(window.location.search).get("lang");
+let currentLang = supportedLangs.includes(urlLang)
+  ? urlLang
+  : localStorage.getItem("fateLanguage") || "ja";
+if (!supportedLangs.includes(currentLang)) {
+  currentLang = "ja";
+}
 
 let pendingScores = null;
 let pendingAnswers = null;
@@ -269,11 +445,167 @@ function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
 
+const uiText = {
+  ja: {
+    title: "FATE診断 | 被服行動尺度",
+    navDiagnosis: "診断",
+    navAbout: "FATE診断とは",
+    navTypes: "ファッションタイプ",
+    heroEyebrow: "Find Your Fashion Compass",
+    heroTitle: "あなたの服選びに、名前をつけよう。",
+    heroLead:
+      "なんとなく選んでいる服にも、ちゃんと理由がある。FATE診断は、あなたの「好き」「似合う」「選びがち」を16タイプでひもとくファッション診断です。",
+    heroMeta: ["約3分で完了", "16タイプでわかる服選び診断", "46問・7段階回答"],
+    introTitle: "直感で選んでください",
+    introCopy:
+      "服を選ぶときの考え方や、写真の靴から受ける印象について答えてください。最後に、あなたの服選びのクセを4文字コードとキャラクターで表示します。",
+    agree: "そう思う",
+    disagree: "そう思わない",
+    next: "次へ",
+    reset: "回答をリセット",
+    loading: "読み込み中...",
+    missingFate: (count) => `未回答の項目があります。${count}問すべてに回答してください。`,
+    missingAll: "未回答の項目があります。すべての項目に回答してください。",
+    photoInstruction: (label) => `${label}に置かれている靴について答えてください。`,
+    photoMissing: "未回答の項目があります。25問すべてに回答し、自由記述を10文字以上で入力してください。",
+    freeTextMissing: "自由記述は10文字以上で入力してください。",
+    backToFate: "FATE診断を修正する",
+    diagnose: "診断する",
+    contactTitle: "診断結果を受け取る",
+    contactCopy: "メールアドレスは入力しなくても診断できます。結果を自分に送信したい場合のみ入力してください。",
+    name: "名前",
+    email: "メールアドレス（任意）",
+    age: "年齢",
+    select: "選択してください",
+    frequency: "スニーカーの購入頻度",
+    frequencyOptions: [
+      ["めったに行かない(1年に1回程度)", "めったに行かない(1年に1回程度)"],
+      ["たまに行く(1年に2回以上)", "たまに行く(1年に2回以上)"],
+      ["時々行く(1年に4回以上)", "時々行く(1年に4回以上)"],
+      ["よく行く(1年に6回以上)", "よく行く(1年に6回以上)"],
+      ["頻繁に行く(1年に10回以上)", "頻繁に行く(1年に10回以上)"],
+    ],
+    handedness: "利き手",
+    right: "右",
+    left: "左",
+    consent: "個人情報は研究目的以外のために第三者へ共有されません",
+    back: "回答を修正する",
+    resultButton: "診断結果を見る",
+    contactError: "未入力の項目があります。必須項目を入力し、同意欄にチェックしてください。",
+    sending: "送信中...",
+    profileTitle: "あなたのプロフィール",
+    profileCopy: "FATE診断の結果を確認して、あなたの服選びの中心的な傾向を見てみましょう。",
+    typeLabel: "被服行動タイプ",
+    features: "特徴",
+    match: "相性がいいタイプ",
+    caution: "ひとこと注意",
+    detail: "詳しく見る",
+    traits: "被服行動特性",
+    resultDate: "診断日：",
+    shareDefault: "結果をスクリーンショットしてSNSでシェアしよう！",
+    shareButton: "シェア文をコピー",
+    copied: "コピーしました",
+    copyFailed: "コピーできませんでした",
+    shareHash: "#FATE診断",
+    footerNote: "永野（1994）女子大学生基準の平均点を50%として換算しています。",
+    shareMessage: (name) => `私は「${name}」でした。あなたは何タイプ？`,
+    shareText: (name) => `私は「${name}」でした！\nあなたは何タイプ？\n\n#FATE診断\n${SITE_URL}`,
+  },
+  en: {
+    title: "FATE Diagnosis | Clothing Behavior Scale",
+    navDiagnosis: "Diagnosis",
+    navAbout: "About FATE",
+    navTypes: "Fashion Types",
+    heroEyebrow: "Find Your Fashion Compass",
+    heroTitle: "Give your fashion choices a name.",
+    heroLead:
+      "The clothes you choose are not random. FATE reveals your preferences, fit, and shopping habits as one of 16 fashion types.",
+    heroMeta: ["Takes about 3 minutes", "Discover your fashion type", "46 items / 7-point scale"],
+    introTitle: "Answer intuitively",
+    introCopy:
+      "Answer questions about how you choose clothes and what impressions you get from the sneaker photos. At the end, your fashion tendency appears as a 4-letter code and character.",
+    agree: "Agree",
+    disagree: "Disagree",
+    next: "Next",
+    reset: "Reset answers",
+    loading: "Loading...",
+    missingFate: (count) => `Some items are unanswered. Please answer all ${count} questions.`,
+    missingAll: "Some items are unanswered. Please answer every item.",
+    photoInstruction: (label) => `Please answer about the shoes displayed in ${label}.`,
+    photoMissing: "Some items are unanswered. Please answer all 25 items and write at least 10 characters.",
+    freeTextMissing: "Please write at least 10 characters.",
+    backToFate: "Edit FATE answers",
+    diagnose: "See result",
+    contactTitle: "Receive your result",
+    contactCopy: "You can see your result without entering an email address. Enter it only if you want the result sent to you.",
+    name: "Name",
+    email: "Email address (optional)",
+    age: "Age",
+    select: "Please select",
+    frequency: "How often do you buy sneakers?",
+    frequencyOptions: [
+      ["めったに行かない(1年に1回程度)", "Rarely (about once a year or less)"],
+      ["たまに行く(1年に2回以上)", "Occasionally (at least twice a year)"],
+      ["時々行く(1年に4回以上)", "Sometimes (at least 4 times a year)"],
+      ["よく行く(1年に6回以上)", "Often (at least 6 times a year)"],
+      ["頻繁に行く(1年に10回以上)", "Very often (at least 10 times a year)"],
+    ],
+    handedness: "Dominant hand",
+    right: "Right",
+    left: "Left",
+    consent: "Personal information will not be shared with third parties except for research purposes.",
+    back: "Edit answers",
+    resultButton: "View diagnosis result",
+    contactError: "Some required fields are missing. Please complete the required fields and consent checkbox.",
+    sending: "Sending...",
+    profileTitle: "Your Profile",
+    profileCopy: "Check your FATE result and discover the core tendencies behind your clothing choices.",
+    typeLabel: "Clothing Behavior Type",
+    features: "Features",
+    match: "Compatible type",
+    caution: "Quick note",
+    detail: "See details",
+    traits: "Clothing Behavior Traits",
+    resultDate: "Date: ",
+    shareDefault: "Screenshot your result and share it on social media!",
+    shareButton: "Copy share text",
+    copied: "Copied",
+    copyFailed: "Could not copy",
+    shareHash: "#FATEDiagnosis",
+    footerNote: "Scores are converted using the Nagano (1994) female university student average as 50%.",
+    shareMessage: (name) => `I got “${name}.” What type are you?`,
+    shareText: (name) => `I got “${name}”!\nWhat type are you?\n\n#FATEDiagnosis\n${SITE_URL}`,
+  },
+};
+
+function t(key, ...args) {
+  const value = uiText[currentLang][key];
+  return typeof value === "function" ? value(...args) : value;
+}
+
+function getLocalizedScaleQuestions(scale) {
+  return currentLang === "en" ? scale.questionsEn : scale.questions;
+}
+
+function localizePhotoLabel(photo) {
+  return currentLang === "en" ? photo.labelEn : photo.label;
+}
+
+function localizePhotoAlt(photo) {
+  return currentLang === "en" ? photo.altEn : photo.alt;
+}
+
+function replacePhotoToken(text, photo) {
+  const label = localizePhotoLabel(photo);
+  return currentLang === "en" ? text.replaceAll("Photo N", label) : text.replaceAll("写真N", label);
+}
+
 function renderQuiz() {
+  quiz.innerHTML = "";
   const fragment = document.createDocumentFragment();
 
   scales.forEach((scale) => {
-    scale.questions.forEach((text, index) => {
+    getLocalizedScaleQuestions(scale).forEach((text, index) => {
       const number = index + 1;
       const id = `${scale.key}${number}`;
       fragment.append(createQuestionCard(id, text));
@@ -283,14 +615,14 @@ function renderQuiz() {
   const actions = document.createElement("div");
   actions.className = "actions";
   actions.innerHTML = `
-    <button class="primary" type="submit" id="go-to-photo">次へ</button>
-    <button class="secondary" type="reset">回答をリセット</button>
+    <button class="primary" type="submit" id="go-to-photo">${t("next")}</button>
+    <button class="secondary" type="reset">${t("reset")}</button>
   `;
 
   const error = document.createElement("p");
   error.className = "form-error";
   error.id = "form-error";
-  error.textContent = "未回答の項目があります。すべての項目に回答してください。";
+  error.textContent = t("missingAll");
 
   fragment.append(error, actions);
   quiz.append(fragment);
@@ -300,38 +632,41 @@ function renderPhotoStep(photo) {
   photoStep.innerHTML = "";
   const fragment = document.createDocumentFragment();
   const section = document.createElement("section");
+  const photoLabel = localizePhotoLabel(photo);
   section.className = "photo-section";
   section.innerHTML = `
-    <img class="photo-section__image" src="${photo.image}" alt="${photo.alt}" />
+    <img class="photo-section__image" src="${photo.image}" alt="${localizePhotoAlt(photo)}" />
     <div class="photo-section__body">
-      <h2>${photo.label}</h2>
-      <p>${photo.label}に置かれている靴について答えてください。</p>
+      <h2>${photoLabel}</h2>
+      <p>${t("photoInstruction", photoLabel)}</p>
     </div>
   `;
   fragment.append(section);
 
-  photoQuestionTexts.forEach((text, index) => {
+  const photoQuestions = currentLang === "en" ? photoQuestionTextsEn : photoQuestionTexts;
+  photoQuestions.forEach((text, index) => {
     const id = `P${index + 1}`;
-    fragment.append(createQuestionCard(id, text.replaceAll("写真N", photo.label)));
+    fragment.append(createQuestionCard(id, replacePhotoToken(text, photo)));
   });
 
-  commonQuestionTexts.forEach((text, index) => {
+  const commonQuestions = currentLang === "en" ? commonQuestionTextsEn : commonQuestionTexts;
+  commonQuestions.forEach((text, index) => {
     const id = `C${index + 1}`;
     fragment.append(createQuestionCard(id, text));
   });
 
-  fragment.append(createFreeTextCard(photoFreeTextQuestion.replaceAll("写真N", photo.label)));
+  fragment.append(createFreeTextCard(replacePhotoToken(currentLang === "en" ? photoFreeTextQuestionEn : photoFreeTextQuestion, photo)));
 
   const error = document.createElement("p");
   error.className = "form-error";
   error.id = "photo-form-error";
-  error.textContent = "未回答の項目があります。25問すべてに回答し、自由記述を10文字以上で入力してください。";
+  error.textContent = t("photoMissing");
 
   const actions = document.createElement("div");
   actions.className = "actions";
   actions.innerHTML = `
-    <button class="secondary" type="button" id="back-to-fate">FATE診断を修正する</button>
-    <button class="primary" type="submit">診断する</button>
+    <button class="secondary" type="button" id="back-to-fate">${t("backToFate")}</button>
+    <button class="primary" type="submit">${t("diagnose")}</button>
   `;
 
   fragment.append(error, actions);
@@ -352,7 +687,7 @@ function createQuestionCard(id, text) {
       <p>${text}</p>
     </div>
     <div class="choices" role="radiogroup" aria-label="${id}">
-      <span class="choice-label choice-label--agree">そう思う</span>
+      <span class="choice-label choice-label--agree">${t("agree")}</span>
       ${[
         { value: 7, size: 58, color: "var(--accent-2)" },
         { value: 6, size: 48, color: "var(--accent-2)" },
@@ -371,7 +706,7 @@ function createQuestionCard(id, text) {
           `,
         )
         .join("")}
-      <span class="choice-label choice-label--disagree">そう思わない</span>
+      <span class="choice-label choice-label--disagree">${t("disagree")}</span>
     </div>
   `;
   return card;
@@ -519,7 +854,7 @@ function renderScores(scores) {
         <div class="trait-row" style="--trait-color: ${score.color}; --marker: ${score.marker}%">
           <div class="trait-row__score">
             <span>${score.percent.toFixed(0)}%</span> ${score.activeLabel}
-            <button type="button" aria-label="${score.jp}の説明">?</button>
+            <button type="button" aria-label="${currentLang === "en" ? score.label : score.jp}">?</button>
           </div>
           <div class="trait-bar" aria-hidden="true">
             <span></span>
@@ -535,7 +870,7 @@ function renderScores(scores) {
 }
 
 function renderCharacter(code) {
-  const [characterName] = characterProfiles[code];
+  const [characterName] = currentLang === "en" ? typeProfilesEn[code] : characterProfiles[code];
   const avatar = document.querySelector("#type-avatar");
   document.querySelector("#character-name").textContent = characterName;
   avatar.src = `assets/characters/${code}.png`;
@@ -589,20 +924,22 @@ function buildCharacterSvg(main, accent, headwear, item) {
 
 function showResult(scores) {
   const code = getType(scores);
-  const [name, copy] = typeProfiles[code];
-  const details = typeShareDetails[code];
+  const profiles = currentLang === "en" ? typeProfilesEn : typeProfiles;
+  const shareDetails = currentLang === "en" ? typeShareDetailsEn : typeShareDetails;
+  const [name, copy] = profiles[code];
+  const details = shareDetails[code];
   document.querySelector("#type-code").textContent = `(${code})`;
   document.querySelector("#type-name").textContent = name;
   document.querySelector("#type-copy").textContent = copy;
   document.querySelector("#type-features").innerHTML = details.features.map((feature) => `<li>${feature}</li>`).join("");
   document.querySelector("#type-match").textContent = details.match;
   document.querySelector("#type-caution").textContent = details.caution;
-  document.querySelector("#type-detail-link").href = `type-detail.html?type=${code}`;
-  document.querySelector("#share-message").textContent = `私は「${name}」でした。あなたは何タイプ？`;
+  document.querySelector("#type-detail-link").href = `type-detail.html?type=${code}&lang=${currentLang}`;
+  document.querySelector("#share-message").textContent = t("shareMessage", name);
   document.querySelector("#copy-share-status").textContent = "";
   document.querySelector("#copy-share-text").dataset.shareText = buildShareText(code);
   renderCharacter(code);
-  document.querySelector("#result-date").textContent = new Intl.DateTimeFormat("ja-JP", {
+  document.querySelector("#result-date").textContent = new Intl.DateTimeFormat(currentLang === "en" ? "en-US" : "ja-JP", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
@@ -613,12 +950,8 @@ function showResult(scores) {
 }
 
 function buildShareText(code) {
-  const [name] = typeProfiles[code];
-  return `私は「${name}」でした！
-あなたは何タイプ？
-
-#FATE診断
-${SITE_URL}`;
+  const [name] = (currentLang === "en" ? typeProfilesEn : typeProfiles)[code];
+  return t("shareText", name);
 }
 
 function buildSubmission(user, scores) {
@@ -732,6 +1065,90 @@ function requestPhotoAssignment() {
 
 renderQuiz();
 
+function setText(selector, value) {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.textContent = value;
+  }
+}
+
+function setSelectOptions(select, options) {
+  if (!select) {
+    return;
+  }
+  const selectedValue = select.value;
+  select.innerHTML = `<option value="">${t("select")}</option>`;
+  options.forEach(([value, label]) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = label;
+    select.append(option);
+  });
+  select.value = selectedValue;
+}
+
+function applyLanguage() {
+  document.documentElement.lang = currentLang;
+  document.title = t("title");
+  localStorage.setItem("fateLanguage", currentLang);
+
+  setText(".site-nav__links a[href='index.html']", t("navDiagnosis"));
+  setText(".site-nav__links a[href='about.html']", t("navAbout"));
+  setText(".site-nav__links a[href='fashion-types.html']", t("navTypes"));
+  setText(".hero .eyebrow", t("heroEyebrow"));
+  setText(".hero h1", t("heroTitle"));
+  setText(".hero .lead", t("heroLead"));
+  document.querySelectorAll(".hero__meta span").forEach((item, index) => {
+    item.textContent = t("heroMeta")[index];
+  });
+  setText("#intro-title", t("introTitle"));
+  setText(".intro p", t("introCopy"));
+  document.querySelectorAll(".response-preview > span").forEach((item, index) => {
+    item.textContent = index === 0 ? t("agree") : t("disagree");
+  });
+  setText("#contact-step h2", t("contactTitle"));
+  setText(".contact-step__copy", t("contactCopy"));
+  setText("label[for='user-name'] span", t("name"));
+  setText("#contact-form label:nth-of-type(1) span", t("name"));
+  setText("#contact-form label:nth-of-type(2) span", t("email"));
+  setText("#contact-form label:nth-of-type(3) span", t("age"));
+  setText("#contact-form label:nth-of-type(4) span", t("frequency"));
+  setText(".handedness-field legend", t("handedness"));
+  document.querySelectorAll(".handedness-field label span").forEach((item, index) => {
+    item.textContent = index === 0 ? t("right") : t("left");
+  });
+  setText(".consent-field span", t("consent"));
+  setText("#back-to-quiz", t("back"));
+  setText("#send-result", t("resultButton"));
+  setText(".profile-hero h2", t("profileTitle"));
+  setText(".profile-hero p", t("profileCopy"));
+  setText(".type-card__label", t("typeLabel"));
+  setText(".type-snapshot h4", t("features"));
+  document.querySelectorAll(".type-snapshot__pair span").forEach((item, index) => {
+    item.textContent = index === 0 ? t("match") : t("caution");
+  });
+  setText("#type-detail-link", t("detail"));
+  setText(".traits-panel__head h3", t("traits"));
+  const resultDate = document.querySelector(".result-date");
+  if (resultDate?.firstChild) {
+    resultDate.firstChild.textContent = t("resultDate");
+  }
+  setText("#share-message", t("shareDefault"));
+  setText(".share-callout strong", t("shareHash"));
+  setText("#copy-share-text", t("shareButton"));
+  setText("footer p:first-child", t("footerNote"));
+
+  setSelectOptions(document.querySelector("#sneaker-frequency"), t("frequencyOptions"));
+  const agePlaceholder = document.querySelector("#user-age option[value='']");
+  if (agePlaceholder) {
+    agePlaceholder.textContent = t("select");
+  }
+  document.querySelectorAll("[data-lang-choice]").forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.langChoice === currentLang);
+    button.setAttribute("aria-pressed", String(button.dataset.langChoice === currentLang));
+  });
+}
+
 const ageSelect = document.querySelector("#user-age");
 for (let age = 10; age <= 80; age += 1) {
   const option = document.createElement("option");
@@ -740,6 +1157,22 @@ for (let age = 10; age <= 80; age += 1) {
   ageSelect.append(option);
 }
 
+applyLanguage();
+
+document.querySelectorAll("[data-lang-choice]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const nextLang = button.dataset.langChoice;
+    if (!supportedLangs.includes(nextLang) || nextLang === currentLang) {
+      return;
+    }
+    currentLang = nextLang;
+    localStorage.setItem("fateLanguage", currentLang);
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", currentLang);
+    window.location.href = url.toString();
+  });
+});
+
 document.querySelector("#privacy-consent").addEventListener("change", (event) => {
   document.querySelector("#send-result").disabled = !event.target.checked;
 });
@@ -747,7 +1180,7 @@ document.querySelector("#privacy-consent").addEventListener("change", (event) =>
 document.querySelector("#copy-share-text").addEventListener("click", async (event) => {
   const button = event.currentTarget;
   const status = document.querySelector("#copy-share-status");
-  const text = button.dataset.shareText || `${SITE_URL}\n#FATE診断`;
+  const text = button.dataset.shareText || `${SITE_URL}\n${t("shareHash")}`;
 
   try {
     if (navigator.clipboard?.writeText) {
@@ -763,9 +1196,9 @@ document.querySelector("#copy-share-text").addEventListener("click", async (even
       document.execCommand("copy");
       textarea.remove();
     }
-    status.textContent = "コピーしました";
+    status.textContent = t("copied");
   } catch (error) {
-    status.textContent = "コピーできませんでした";
+    status.textContent = t("copyFailed");
   }
 });
 
@@ -779,7 +1212,7 @@ quiz.addEventListener("submit", async (event) => {
 
   if (answered !== totalQuestions) {
     error.classList.add("is-visible");
-    error.textContent = `未回答の項目があります。${totalQuestions}問すべてに回答してください。`;
+    error.textContent = t("missingFate", totalQuestions);
     const firstMissing = questionNames.find((name) => !quiz.querySelector(`input[name="${name}"]:checked`));
     quiz.querySelector(`input[name="${firstMissing}"]`)?.focus();
     return;
@@ -789,7 +1222,7 @@ quiz.addEventListener("submit", async (event) => {
   pendingScores = collectScores();
   pendingAnswers = collectAnswers();
   nextButton.disabled = true;
-  nextButton.textContent = "読み込み中...";
+  nextButton.textContent = t("loading");
 
   const assignment = await requestPhotoAssignment();
   selectedPhotoSet = photoSets.find((photo) => photo.key === assignment.photoKey) || photoSets[0];
@@ -802,7 +1235,7 @@ quiz.addEventListener("submit", async (event) => {
   result.hidden = true;
   contactStep.hidden = true;
   nextButton.disabled = false;
-  nextButton.textContent = "次へ";
+  nextButton.textContent = t("next");
   photoStep.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
@@ -839,7 +1272,7 @@ photoStep.addEventListener("submit", (event) => {
 
   if (answered !== questionNames.length) {
     error.classList.add("is-visible");
-    error.textContent = "未回答の項目があります。25問すべてに回答し、自由記述を10文字以上で入力してください。";
+    error.textContent = t("photoMissing");
     const firstMissing = questionNames.find((name) => !photoStep.querySelector(`input[name="${name}"]:checked`));
     photoStep.querySelector(`input[name="${firstMissing}"]`)?.focus();
     return;
@@ -847,7 +1280,7 @@ photoStep.addEventListener("submit", (event) => {
 
   if (freeTextValue.length < 10) {
     error.classList.add("is-visible");
-    error.textContent = "自由記述は10文字以上で入力してください。";
+    error.textContent = t("freeTextMissing");
     freeText.focus();
     return;
   }
@@ -874,14 +1307,14 @@ contactForm.addEventListener("submit", async (event) => {
   };
 
   if (!contactForm.reportValidity()) {
-    contactError.textContent = "未入力の項目があります。必須項目を入力し、同意欄にチェックしてください。";
+    contactError.textContent = t("contactError");
     contactError.classList.add("is-visible");
     return;
   }
 
   contactError.classList.remove("is-visible");
   submitButton.disabled = true;
-  submitButton.textContent = "送信中...";
+  submitButton.textContent = t("sending");
 
   try {
     await submitToGoogle(buildSubmission(user, pendingScores));
@@ -892,6 +1325,6 @@ contactForm.addEventListener("submit", async (event) => {
     contactError.classList.add("is-visible");
   } finally {
     submitButton.disabled = false;
-    submitButton.textContent = "診断結果を見る";
+    submitButton.textContent = t("resultButton");
   }
 });
