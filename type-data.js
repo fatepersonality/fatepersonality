@@ -368,6 +368,137 @@ const typeGroups = [
   },
 ];
 
+const typeDataEn = {
+  TFCP: {
+    name: "Balance Captain",
+    character: "Captain Balancer",
+    tagline: "A versatile type that balances trend, function, context, and price.",
+    summary: "Balance Captain enjoys a modern look while checking comfort, usefulness, context, and price. This type is realistic, avoids waste, and can add freshness without losing practicality.",
+  },
+  TFCQ: {
+    name: "Quality Strategist",
+    character: "Silk Strategist",
+    tagline: "A strategic type that turns trends into long-lasting quality.",
+    summary: "Quality Strategist does not simply chase trends. This type edits trends into pieces that fit daily life, while valuing function, TPO, materials, and construction.",
+  },
+  OFCP: {
+    name: "Classic Planner",
+    character: "Classic Navigator",
+    tagline: "A steady type that chooses by function, context, and price rather than trends.",
+    summary: "Classic Planner chooses clothes that reliably work in everyday life. This type values usefulness, appropriate situations, and reasonable price, creating a stable wardrobe.",
+  },
+  OFCQ: {
+    name: "Heritage Curator",
+    character: "Heritage Librarian",
+    tagline: "A type that selects classic, quality, polished items by personal standards.",
+    summary: "Heritage Curator values personal taste and trustworthy quality more than short-lived trends. The result is calm, careful, and appropriate styling.",
+  },
+  TFEP: {
+    name: "Street Engineer",
+    character: "Street Engineer",
+    tagline: "An active type that combines trend, function, and freedom.",
+    summary: "Street Engineer enjoys movement and a current mood at the same time. This type uses practical items in individual, streetwise combinations.",
+  },
+  TFEQ: {
+    name: "Urban Inventor",
+    character: "Metro Inventor",
+    tagline: "An experimental type that mixes individuality, trend, function, and quality.",
+    summary: "Urban Inventor treats clothes as tools for better living and personal expression. This type is drawn to new structures, technical materials, and meaningful design.",
+  },
+  OFEP: {
+    name: "Utility Crafter",
+    character: "Utility Maker",
+    tagline: "A practical type that values usability and cost performance.",
+    summary: "Utility Crafter chooses clothes as everyday tools. Comfort, durability, easy care, and price satisfaction matter more than trend or attention.",
+  },
+  OFEQ: {
+    name: "Gear Artisan",
+    character: "Gear Master",
+    tagline: "A type that pursues personal standards of function and quality.",
+    summary: "Gear Artisan looks deeply at structure, materials, and long-term value. This type chooses by conviction rather than popularity.",
+  },
+  TACP: {
+    name: "Smart Stylist",
+    character: "Smart Style Guide",
+    tagline: "A polished type that balances appearance, trend, context, and price.",
+    summary: "Smart Stylist is good at creating a pleasant impression. This type updates style with trend elements while keeping the look suitable and approachable.",
+  },
+  TACQ: {
+    name: "Luxury Director",
+    character: "Luxury Director",
+    tagline: "A refined type that values appearance, TPO, trend, and quality.",
+    summary: "Luxury Director treats clothing as impression design. This type is sensitive to materials, silhouette, and the atmosphere of each occasion.",
+  },
+  OACP: {
+    name: "Simple Coordinator",
+    character: "Minimal Coordinator",
+    tagline: "A calm type that values harmony between appearance and context.",
+    summary: "Simple Coordinator prefers natural harmony over loud trends. This type creates a clean, reassuring impression with simple shapes and balanced colors.",
+  },
+  OACQ: {
+    name: "Elegant Collector",
+    character: "Elegance Collector",
+    tagline: "A type that quietly enjoys personal taste and quality.",
+    summary: "Elegant Collector chooses refined items that match personal taste. This type values depth of color, texture, and quiet quality.",
+  },
+  TAEP: {
+    name: "Pop Messenger",
+    character: "Pop Messenger",
+    tagline: "An expressive type that enjoys trends freely with price awareness.",
+    summary: "Pop Messenger uses fashion to express mood and personality. This type responds quickly to trends and enjoys color, shape, and playful details.",
+  },
+  TAEQ: {
+    name: "Mode Star",
+    character: "Mode Star",
+    tagline: "A vivid type that enjoys trend, expression, and quality.",
+    summary: "Mode Star uses clothing to create presence and worldview. This type can handle bold silhouettes, strong materials, and memorable styling.",
+  },
+  OAEP: {
+    name: "Free Designer",
+    character: "Free Designer",
+    tagline: "A creative type that values personal appearance and realistic price sense.",
+    summary: "Free Designer values a look that feels personally right. This type can build atmosphere through combinations, vintage pieces, and small styling ideas.",
+  },
+  OAEQ: {
+    name: "Signature Artist",
+    character: "Signature Creator",
+    tagline: "A type that follows a personal worldview and quality standards.",
+    summary: "Signature Artist treats clothing as a way to shape a personal world. This type values meaning, quality, and aesthetic consistency over trends.",
+  },
+};
+
+const typeGroupsEn = [
+  {
+    id: "functional-context",
+    title: "Functional Context Types",
+    color: "#8a66a0",
+    copy: "Types that value functionality and appropriateness, creating reliable choices.",
+    codes: ["TFCP", "TFCQ", "OFCP", "OFCQ"],
+  },
+  {
+    id: "functional-expression",
+    title: "Free Functional Types",
+    color: "#2fa06e",
+    copy: "Types that use function as a base while enjoying personal combinations.",
+    codes: ["TFEP", "TFEQ", "OFEP", "OFEQ"],
+  },
+  {
+    id: "appearance-context",
+    title: "Appearance Context Types",
+    color: "#4297b3",
+    copy: "Types that value visual impression and consideration for the situation.",
+    codes: ["TACP", "TACQ", "OACP", "OACQ"],
+  },
+  {
+    id: "appearance-expression",
+    title: "Appearance Expression Types",
+    color: "#e0a82e",
+    copy: "Types that enjoy fashion as self-expression and visual change.",
+    codes: ["TAEP", "TAEQ", "OAEP", "OAEQ"],
+  },
+];
+
+
 function getTypeGroup(code) {
   return typeGroups.find((group) => group.codes.includes(code));
 }
