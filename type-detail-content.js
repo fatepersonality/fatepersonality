@@ -192,3 +192,198 @@ const typeDetailContent = {
     },
   },
 };
+
+const typeDetailContentEn = {
+  TFCP: {
+    story: [
+      "Balance Captain looks at newness, usability, fit for the situation, and price satisfaction at the same time. This type is open to trends, but cautious about items that only stand out without serving daily life.",
+      "The charm of this type is balance. The outfit can feel current without looking careless, and practical without becoming plain. When trying a new color or silhouette, this type naturally checks whether it works with the clothes already owned.",
+      "Because this type tries to satisfy many conditions, it may pass over an item that feels exciting at first sight. Looking for the perfect answer every time can make fashion feel a little too controlled.",
+      "A good strategy is to build a dependable base for everyday life, then add freshness through shoes, bags, color, or outerwear. Updating one visible detail is enough to keep the style smart and current.",
+    ],
+    outfits: {
+      men: "A gray functional setup, clean white T-shirt, and comfortable leather sneakers. Add a compact shoulder bag for practicality that works after school or work.",
+      women: "A water-repellent light jacket, center-press pants, and white sneakers. Add one accent-color bag or scarf for a practical but current impression.",
+    },
+  },
+  TFCQ: {
+    story: [
+      "Quality Strategist sees clothing as an investment in daily life rather than short-term consumption. This type watches trends closely, but does not choose an item only because it is popular.",
+      "This type is good at translating trends into something that lasts. Even with a talked-about item, it tends to choose pieces with quality, function, and an appropriate level of refinement.",
+      "The blind spot is becoming too cautious. High standards are a strength, but if every purchase must be a long-term investment, small changes can become hard to enjoy.",
+      "This type shines with a small number of well-chosen items. Shoes, coats, and bags are especially worth investing in because they shape the impression of the whole outfit.",
+    ],
+    outfits: {
+      men: "A navy wool-blend jacket, quality black knit, tapered slacks, and leather sneakers. Quiet, well-made accessories suit this type.",
+      women: "A smooth blouse, draped wide pants, and quality loafers. A small bag in a trend color adds freshness without losing elegance.",
+    },
+  },
+  OFCP: {
+    story: [
+      "Classic Planner does not get pulled around by trends. This type chooses clothes by thinking backward from real situations: when to wear it, what to match it with, and how often it will be useful.",
+      "The impression is reassuring. The style may not be extremely eye-catching, but it is clean, organized, and rarely out of place. Basic colors and reliable shapes make daily dressing easier.",
+      "The risk is that safe choices can become repetitive. The outfit may be good, but not very fresh. Updating only the shoe shape, pants length, or outerwear silhouette can make a big difference.",
+      "This type works best with long-lasting basics plus small adjustments for each situation. Careful fit and a limited color palette can turn steadiness into refinement.",
+    ],
+    outfits: {
+      men: "A white shirt, beige chinos, navy cardigan, and clean sneakers. It works for casual days, school, or a relaxed workplace.",
+      women: "A white blouse, navy straight pants, and a light trench-style coat. Low heels or loafers balance practicality and polish.",
+    },
+  },
+  OFCQ: {
+    story: [
+      "Heritage Curator chooses by personal standards rather than trend speed. This type values long-term use, appropriateness, and trustworthy materials or construction.",
+      "The appeal is quiet elegance. Even without strong statements, the color choices and textures show care. Classic, minimal, and traditional items suit this type well.",
+      "Because this type already has a refined taste, it can become harder to invite new moods in. Repeating the same colors and shapes may make the style feel slightly rigid.",
+      "Choose high quality for the items you use most often. Shoes, bags, and outerwear deepen the trustworthy impression of this type.",
+    ],
+    outfits: {
+      men: "A brown jacket, white shirt, gray wool pants, and leather shoes. Matching belt and shoe colors creates a calm, quality impression.",
+      women: "A quality knit, check long skirt, and black or brown loafers. A small leather bag gives the outfit a classic, intelligent tone.",
+    },
+  },
+  TFEP: {
+    story: [
+      "Street Engineer enjoys trend and mobility at the same time. This type cares not only about how clothes look, but also whether they are easy to walk in, carry things with, and move around in.",
+      "Sneakers, cargo pants, hoodies, and functional bags suit this type well. Trend is added through silhouette and color, making practical clothes feel current.",
+      "If freedom and function become too strong, the outfit may look too casual in certain settings. For first meetings or formal moments, clean materials and fewer colors help.",
+      "Add one polished element to clothes that are easy to move in. Outerwear, shoes, or a bag can create trust while keeping the free street mood.",
+    ],
+    outfits: {
+      men: "A black nylon jacket, white hoodie, olive cargo pants, and chunky sneakers. A crossbody bag emphasizes functional street style.",
+      women: "A cropped blouson, wide cargo pants, and platform sneakers. A white or light gray inner layer keeps the look clean.",
+    },
+  },
+  TFEQ: {
+    story: [
+      "Urban Inventor sees clothing as a new tool for daily life. This type is sensitive to trends, functional materials, unusual structures, and convenient details.",
+      "Tech outerwear, sculptural bags, functional pants, and distinctive shoes can work well. Quality matters, so this type often prefers a meaningful item over many cheap trend pieces.",
+      "The blind spot is that strong curiosity can feel a little distant to others. If the outfit is too structural or experimental, it may seem hard to approach.",
+      "Choose one main experimental item and keep the rest simple. This makes innovation easier to understand and raises the overall polish.",
+    ],
+    outfits: {
+      men: "A high-function shell jacket, black mock neck, relaxed tapered pants, and design-forward sneakers. A minimal body bag fits well.",
+      women: "A sculptural short coat, straight pants, and metallic-accent sneakers. Keep the inner layer plain so the shape and material stand out.",
+    },
+  },
+  OFEP: {
+    story: [
+      "Utility Crafter chooses clothes as tools for life. Trend or outside evaluation matters less than whether the item is easy to use, reasonably priced, and comfortable to wear.",
+      "The style feels natural and unpretentious. Workwear, outdoor elements, and casual basics are especially compatible because they become better with use.",
+      "If practicality is prioritized too much, the outfit can look a little rough. Fit, shoe condition, and color coordination quickly make the same practicality look more attractive.",
+      "Update the items you use most often: everyday shoes, daily bag, or go-to outerwear. A small upgrade can change the impression without forcing a new style.",
+    ],
+    outfits: {
+      men: "A durable work jacket, plain T-shirt, relaxed denim, and familiar sneakers. Navy, ecru, and khaki create a natural palette.",
+      women: "A cotton shirt, salopette or baker pants, and low-cut sneakers. A canvas tote adds a practical, friendly feel.",
+    },
+  },
+  OFEQ: {
+    story: [
+      "Gear Artisan pursues function and quality until it feels personally convincing. Popularity matters less than whether the structure has meaning and the materials can be trusted.",
+      "Specialized items attract this type: waterproof outerwear, durable shoes, and bags with thoughtful storage. The style may not be flashy, but it has strong logic.",
+      "The risk is that function and quality can push visual impression into the background. An item may be perfect for you but feel heavy in some social contexts.",
+      "Focus your strongest commitment on one main item. When the rest of the outfit is lighter and cleaner, the functional beauty becomes easier to see.",
+    ],
+    outfits: {
+      men: "A quality mountain parka, black tech pants, and waterproof sneakers. Use a white or gray inner layer to keep it from feeling too heavy.",
+      women: "A functional long coat, simple knit, straight pants, and walkable boots. A structured high-quality bag completes the look.",
+    },
+  },
+  TACP: {
+    story: [
+      "Smart Stylist thinks about how clothing looks to others and whether it fits the situation. This type is positive about trends, but values a good impression more than being extreme.",
+      "Small details like colors, accessories, shoes, and hair can be used to adjust the whole impression. Even without expensive clothes, this type can create freshness and cleanliness.",
+      "The blind spot is that thinking too much about the situation can weaken personal preference. Keeping one favorite color or shape gives the outfit a center.",
+      "Add trend through accessories while keeping the clothing base simple. Bags, shoes, or jewelry can refresh the look without changing everything.",
+    ],
+    outfits: {
+      men: "A polished knit polo, slacks, white sneakers, and a light jacket. If keeping costs down, make the shoes especially clean.",
+      women: "A simple top, I-line skirt, short jacket, and a trend-aware mini bag. Small accessories keep the look smart.",
+    },
+  },
+  TACQ: {
+    story: [
+      "Luxury Director treats clothing as impression design. Trend, appearance, context, and quality are all important, and this type aims for a complete look.",
+      "This type is sensitive to material texture and silhouette. Even when using trends, it avoids looking cheap and shines in presentations, interviews, dinners, and other public moments.",
+      "Because the sense of completion is high, dressing can become tense. Trying to be perfect every day may become tiring.",
+      "Build around one quality statement item. When clothing, accessories, and grooming feel unified, the polished presence becomes powerful.",
+    ],
+    outfits: {
+      men: "A quality jacket, black knit, moderately relaxed slacks, and leather shoes. Navy, black, and charcoal create a refined mood.",
+      women: "A draped dress, quality jacket, and pointed shoes. A small structured bag sharpens the whole outfit.",
+    },
+  },
+  OACP: {
+    story: [
+      "Simple Coordinator values natural harmony over trend. This type chooses clothes that are respectful to others and situations while still feeling easy for the self.",
+      "The impression is modest and reassuring. Basic colors, simple shapes, and quiet accessories help this type blend smoothly into the setting.",
+      "The risk is becoming too plain. Even if it feels comfortable to you, others may see the outfit as overly safe.",
+      "Keep the number of colors low, but create interest with texture and fit. Shoes and bags have more impact than loud trend items for this type.",
+    ],
+    outfits: {
+      men: "A plain shirt, relaxed black pants, gray cardigan, and loafers. Keep the outfit within three colors for calm cleanliness.",
+      women: "A white top, beige pants, navy cardigan, and loafers. One small gold accessory adds quiet brightness.",
+    },
+  },
+  OACQ: {
+    story: [
+      "Elegant Collector quietly gathers quality items that match a personal sense of beauty. This type cares more about long-term beauty, materials, and appropriateness than trend speed.",
+      "Depth of color, fabric drape, shoes, and bag texture matter. Rather than loud logos, this type prefers quality that becomes clear up close.",
+      "Because the taste is already well formed, it can be hard to add new options. Too much consistency may reduce lightness or seasonal freshness.",
+      "Add small individuality to high-quality basics. Subtle color and material choices can make the outfit memorable without becoming loud.",
+    ],
+    outfits: {
+      men: "A brown or charcoal knit, wool pants, leather shoes, and a quality coat. A scarf or watch adds quiet individuality.",
+      women: "A silk-like blouse, midi skirt, leather bag, and low pumps. Ivory, brown, or burgundy suit this type well.",
+    },
+  },
+  TAEP: {
+    story: [
+      "Pop Messenger enjoys clothing as a way to show mood and personality. This type reacts quickly to trends and is not afraid of visible change.",
+      "Color, pattern, silhouette, and accessories are used to move the impression. Items that photograph well or start conversation are especially attractive.",
+      "The risk is that free expression can drift away from the situation. If you want to avoid standing out too much, reduce the number of colors or choose one main item.",
+      "Keep playfulness but decide the focus. One main item often communicates energy and taste more clearly than many competing elements.",
+    ],
+    outfits: {
+      men: "A colored sweatshirt, wide pants, white sneakers, and a cap. When using a bold color, keep pants and shoes simple.",
+      women: "A bright cardigan, printed T-shirt, denim skirt, and platform sneakers. Add a playful bag or hair accessory if desired.",
+    },
+  },
+  TAEQ: {
+    story: [
+      "Mode Star uses clothing to express presence and worldview. This type is sensitive to trends and cares strongly about visual completion and quality.",
+      "Bold silhouettes, quality materials, unique colors, and strong patterns can be handled well. The outfit leaves a memorable impression without necessarily looking cheap.",
+      "The risk is that too many statement items blur the focus. The stronger each piece is, the more the viewer may wonder where to look.",
+      "Choose one main character in the outfit, such as outerwear, shoes, bag, or jewelry. Let the other items support it like parts of one composition.",
+    ],
+    outfits: {
+      men: "A design-forward long coat, black wide pants, and sharp boots. Keep the inner layer plain so the coat leads.",
+      women: "A structured jacket, monochrome dress, and accent boots. A small but strong-shaped bag adds a mode impression.",
+    },
+  },
+  OAEP: {
+    story: [
+      "Free Designer values a personally pleasing look more than trends. Even without expensive clothing, this type can create atmosphere through combinations that feel original.",
+      "Vintage pieces, remixing owned clothes, color choices, and accessories are strengths. The outfit has natural individuality rather than a perfectly polished finish.",
+      "The blind spot is that freedom can look too casual or unfocused in some settings. Cleanliness and fit make personal style easier to understand.",
+      "Use a simple base and let one favorite piece stand out. The goal is not to reduce individuality, but to place it where others can read it clearly.",
+    ],
+    outfits: {
+      men: "A vintage shirt, relaxed black pants, canvas sneakers, and a distinctive bag. Keep the colors calm and let pattern or accessories speak.",
+      women: "A loose shirt, wide pants, sneakers, and handmade or design-focused accessories. A white or black base makes free details stand out.",
+    },
+  },
+  OAEQ: {
+    story: [
+      "Signature Artist treats clothing as a way to shape a personal world. Trend and price matter less than meaning, quality, and aesthetic fit.",
+      "This type often has a unique sense of color, material, silhouette, or brand. Instead of widely understandable trends, it chooses deeply convincing pieces.",
+      "Because the worldview is strong, the style can sometimes feel distant in certain contexts. Keeping the core materials or colors while adjusting the shape can soften the impression.",
+      "Grow symbolic items that can stay with you for a long time. A coat, shoes, or accessory that feels like your signature can deepen the whole style.",
+    ],
+    outfits: {
+      men: "A distinctive coat, black wide pants, leather shoes, and a unique accessory. Keeping the color palette narrow makes the worldview refined.",
+      women: "A long coat or kimono-inspired gown, quality plain inner layer, draped bottoms, and design-forward shoes. Choose one memorable accessory.",
+    },
+  },
+};
