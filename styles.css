@@ -109,6 +109,10 @@ h1 {
   font-weight: 700;
 }
 
+.hero__meta span:nth-child(2) {
+  background: rgba(255, 255, 255, 0.18);
+}
+
 main {
   padding: 26px 0 54px;
 }
@@ -592,7 +596,7 @@ main {
 
 .type-card {
   display: grid;
-  grid-template-rows: auto auto minmax(360px, 1fr) auto auto auto;
+  grid-template-rows: auto auto minmax(360px, 1fr) auto auto auto auto;
   min-height: 520px;
   padding: 24px 0 30px;
   border-top: 5px solid var(--disagree);
@@ -655,6 +659,52 @@ main {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.75;
+}
+
+.type-snapshot {
+  display: grid;
+  gap: 12px;
+  margin: 18px 26px 0;
+  padding: 16px;
+  border: 1px solid rgba(133, 95, 153, 0.18);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  text-align: left;
+}
+
+.type-snapshot h4 {
+  margin: 0 0 8px;
+  color: #303643;
+  font-size: 0.95rem;
+}
+
+.type-snapshot ul {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.type-snapshot__pair {
+  display: grid;
+  gap: 3px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(133, 95, 153, 0.14);
+}
+
+.type-snapshot__pair span {
+  color: #8a66a0;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.type-snapshot__pair strong {
+  color: #303643;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .type-detail-button {
@@ -802,6 +852,28 @@ main {
   color: var(--disagree);
   font-size: clamp(1.08rem, 2vw, 1.35rem);
   font-weight: 900;
+}
+
+.share-copy-button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 20px;
+  background: #303643;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.share-copy-button:hover {
+  background: var(--disagree);
+}
+
+.share-copy-status {
+  min-width: 7em;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 800;
 }
 
 footer {
@@ -1119,21 +1191,38 @@ footer {
 }
 
 .axis-table strong,
-.axis-table span {
+.axis-table > div > span {
   padding: 13px 14px;
 }
 
 .axis-table strong {
+  display: grid;
+  align-content: center;
+  gap: 3px;
   color: #303643;
   background: #f2f4f5;
 }
 
-.axis-table span {
+.axis-table > div > span {
+  display: grid;
+  gap: 5px;
   color: var(--muted);
   background: #fff;
 }
 
-.axis-table span + span {
+.axis-table b {
+  color: #303643;
+  font-size: 1rem;
+}
+
+.axis-table small {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.axis-table > div > span + span {
   border-left: 1px solid var(--line);
 }
 
@@ -1439,7 +1528,7 @@ footer {
 
   .type-card {
     min-height: auto;
-    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto;
   }
 
   .avatar {
@@ -1448,6 +1537,11 @@ footer {
 
   .avatar img {
     max-width: min(100%, 260px);
+  }
+
+  .type-snapshot {
+    margin: 16px 18px 0;
+    padding: 14px;
   }
 
   .traits-panel {
@@ -1522,8 +1616,9 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .axis-table span + span {
+  .axis-table > div > span + span {
     border-left: 0;
     border-top: 1px solid var(--line);
   }
 }
+
