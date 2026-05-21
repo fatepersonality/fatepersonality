@@ -90,6 +90,12 @@ h1 {
   letter-spacing: 0;
 }
 
+html[lang="ja"] .hero h1 {
+  max-width: 1040px;
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  line-height: 1.08;
+}
+
 html[lang="en"] h1 {
   max-width: 780px;
   font-size: clamp(3rem, 7.6vw, 6rem);
@@ -1530,12 +1536,16 @@ footer {
     display: grid;
     place-items: center;
     min-height: 38px;
-    padding: 7px 6px;
+    padding: 7px 4px;
     border: 1px solid var(--line);
     border-radius: 6px;
     background: #fff;
-    font-size: 0.82rem;
+    font-size: clamp(0.58rem, 2.45vw, 0.72rem);
+    line-height: 1.15;
+    overflow-wrap: normal;
+    word-break: keep-all;
     text-align: center;
+    white-space: nowrap;
   }
 
   .type-grid {
