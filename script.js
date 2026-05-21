@@ -452,7 +452,7 @@ const uiText = {
     navAbout: "FATE診断とは",
     navTypes: "ファッションタイプ",
     heroEyebrow: "Find Your Fashion Compass",
-    heroTitle: "あなたの服選びに、名前をつけよう。",
+    heroTitle: "FATE診断",
     heroLead:
       "なんとなく選んでいる服にも、ちゃんと理由がある。FATE診断は、あなたの「好き」「似合う」「選びがち」を16タイプでひもとくファッション診断です。",
     heroMeta: ["約3分で完了", "16タイプでわかる服選び診断", "46問・7段階回答"],
@@ -517,7 +517,7 @@ const uiText = {
     navAbout: "About FATE",
     navTypes: "Fashion Types",
     heroEyebrow: "Find Your Fashion Compass",
-    heroTitle: "Give your fashion choices a name.",
+    heroTitle: "FATE Personality",
     heroLead:
       "The clothes you choose are not random. FATE reveals your preferences, fit, and shopping habits as one of 16 fashion types.",
     heroMeta: ["Takes about 3 minutes", "Discover your fashion type", "46 items / 7-point scale"],
