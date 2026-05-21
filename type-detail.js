@@ -11,6 +11,10 @@ const requestedType = params.get("type")?.toUpperCase();
 const code = typeData[requestedType] ? requestedType : "TFCP";
 const type = detailLang === "en" ? { ...typeData[code], ...typeDataEn[code] } : typeData[code];
 const extended = typeDetailContent[code];
+const extendedEn =
+  typeof typeDetailContentEn !== "undefined" && typeDetailContentEn[code]
+    ? typeDetailContentEn[code]
+    : null;
 const typeColor = getTypeColor(code);
 
 const detailText = {
@@ -48,28 +52,8 @@ const detailText = {
   },
 };
 
-function getEnglishDetail(type) {
-  return {
-    story: [
-      type.summary,
-      `${type.name} expresses the four FATE axes through the combination of ${type.axes.join(", ")}. This profile shows what tends to feel natural when choosing clothes, sneakers, and everyday outfits.`,
-      "The result is not a ranking or a correct answer. It is a way to notice the standards you already use when you decide what feels good, useful, appropriate, or worth buying.",
-    ],
-    sections: {
-      style: `${type.name} tends to choose clothing through the lens of ${type.axes[0]}, ${type.axes[1]}, ${type.axes[2]}, and ${type.axes[3]}. This creates a distinctive balance in how the type reacts to trends, comfort, visual impression, social situations, price, and quality.`,
-      strengths: "The strength of this type is that its choices often feel consistent. Once you understand the pattern, it becomes easier to build a wardrobe that matches your real priorities instead of copying someone else's style.",
-      blindspots: "The blind spot is that the same priorities can become too fixed. Trying one small opposite element, such as a new color, silhouette, material, or price range, can make the style feel fresher.",
-      advice: "Use your strongest axis as the base, then add one contrasting element. For example, a practical type can add a polished accessory, while an expressive type can add one reliable basic item.",
-    },
-    outfits: {
-      men: "Start with clean everyday basics, then add one item that reflects this type's strongest axis, such as a trend item, functional outerwear, polished shoes, or a quality bag.",
-      women: "Build the outfit around a comfortable base, then add one detail that expresses the type clearly, such as color, silhouette, material, sneakers, or accessories.",
-    },
-  };
-}
-
 const labels = detailText[detailLang];
-const content = detailLang === "en" ? getEnglishDetail(type) : extended;
+const content = detailLang === "en" && extendedEn ? extendedEn : extended;
 
 document.documentElement.lang = detailLang;
 document.title = `${type.name} (${code}) | ${labels.titleSuffix}`;
@@ -119,19 +103,19 @@ detail.innerHTML = `
         </section>
         <section>
           <h2>${labels.style}</h2>
-          <p>${detailLang === "en" ? content.sections.style : type.sections.style}</p>
+          <p>${type.sections.style}</p>
         </section>
         <section>
           <h2>${labels.strengths}</h2>
-          <p>${detailLang === "en" ? content.sections.strengths : type.sections.strengths}</p>
+          <p>${type.sections.strengths}</p>
         </section>
         <section>
           <h2>${labels.blindspots}</h2>
-          <p>${detailLang === "en" ? content.sections.blindspots : type.sections.blindspots}</p>
+          <p>${type.sections.blindspots}</p>
         </section>
         <section>
           <h2>${labels.advice}</h2>
-          <p>${detailLang === "en" ? content.sections.advice : type.sections.advice}</p>
+          <p>${type.sections.advice}</p>
           <div class="outfit-recommendations">
             <div>
               <h3>${labels.men}</h3>
