@@ -88,6 +88,88 @@ const typeProfiles = {
   OAEP: ["自由デザイナー", "自分らしい見た目を大切にし、価格感覚もある型"],
   OAEQ: ["シグネチャー・アーティスト", "流行や常識に縛られず、自分の世界観と上質さを貫く型"],
 };
+const typeShareDetails = {
+  TFCP: {
+    features: ["流行をほどよく取り入れる", "動きやすさとTPOの両方を見る", "価格感覚があり買い物上手"],
+    match: "OACQ：エレガント収集家",
+    caution: "全部を平均点以上に整えようとして、決めきれなくなることも。",
+  },
+  TFCQ: {
+    features: ["流行と品質のバランスが上手", "機能性にもきちんとこだわる", "場面に合う上質感を選べる"],
+    match: "OAEP：自由デザイナー",
+    caution: "良いものを探しすぎて、買うまでに時間がかかることも。",
+  },
+  OFCP: {
+    features: ["流行に流されにくい", "実用性と場面への安心感を重視", "堅実で失敗しにくい選び方"],
+    match: "TAEQ：モードスター",
+    caution: "無難さを優先しすぎて、新しい魅力を逃すことも。",
+  },
+  OFCQ: {
+    features: ["王道で上質なものを好む", "きちんと感を自然に出せる", "長く使える服を選びやすい"],
+    match: "TAEP：ポップ発信者",
+    caution: "完成度を求めすぎて、遊び心を抑えがちになることも。",
+  },
+  TFEP: {
+    features: ["トレンドと機能を両立する", "自由な着こなしを楽しめる", "街歩きに強い実用感がある"],
+    match: "OACQ：エレガント収集家",
+    caution: "自由さが先に立つと、場面とのズレが出ることも。",
+  },
+  TFEQ: {
+    features: ["個性と流行をミックスできる", "品質や機能にも妥協しにくい", "新しい組み合わせを試すのが得意"],
+    match: "OACP：シンプル調整役",
+    caution: "こだわりが重なって、コーデの情報量が増えすぎることも。",
+  },
+  OFEP: {
+    features: ["使いやすさを最優先できる", "価格と機能のバランスに強い", "自分の生活に合う服を選ぶ"],
+    match: "TACQ：ラグジュアリー監督",
+    caution: "実用性に寄りすぎて、見た目の高揚感を後回しにすることも。",
+  },
+  OFEQ: {
+    features: ["機能と品質を深く追求する", "自分に合う道具感を大切にする", "流行より納得感で選べる"],
+    match: "TACP：スマート・スタイリスト",
+    caution: "こだわりが強くなり、選択肢を狭めてしまうことも。",
+  },
+  TACP: {
+    features: ["見た目と場面のバランスが上手", "トレンド感をきれいに整える", "第一印象を意識した服選び"],
+    match: "OFEQ：孤高のギア職人",
+    caution: "周囲からの見え方を気にしすぎて、疲れることも。",
+  },
+  TACQ: {
+    features: ["洗練された印象を作るのが得意", "流行と品質を華やかに扱える", "TPOに合う存在感を出せる"],
+    match: "OFEP：実用クラフター",
+    caution: "完成度が高いぶん、気軽さが出にくくなることも。",
+  },
+  OACP: {
+    features: ["落ち着いた見た目を大切にする", "場面に合わせて調和できる", "流行に振り回されにくい"],
+    match: "TFEQ：都会の発明家",
+    caution: "控えめにまとめすぎて、個性が伝わりにくいことも。",
+  },
+  OACQ: {
+    features: ["自分の美意識を大切にする", "上質で品のある服を選びやすい", "静かなこだわりが伝わる"],
+    match: "TFEP：ストリート技師",
+    caution: "理想の雰囲気を守ろうとして、変化を避けることも。",
+  },
+  TAEP: {
+    features: ["トレンドを自由に楽しめる", "価格感覚があり挑戦しやすい", "明るく発信力のある服選び"],
+    match: "OFCQ：伝統キュレーター",
+    caution: "勢いで選ぶと、あとで使いにくさを感じることも。",
+  },
+  TAEQ: {
+    features: ["華やかで印象に残る", "流行と品質を自分らしく楽しめる", "服で世界観を表現できる"],
+    match: "OFCP：王道プランナー",
+    caution: "主役感を出しすぎると、日常使いしにくくなることも。",
+  },
+  OAEP: {
+    features: ["自分らしい見た目を大切にする", "価格とのバランスも見られる", "気分に合う服選びが得意"],
+    match: "TFCQ：上質参謀",
+    caution: "気分優先で選ぶと、場面に合わないことも。",
+  },
+  OAEQ: {
+    features: ["独自の世界観を貫ける", "品質と美意識を重視する", "人と違う魅力を作れる"],
+    match: "TFCP：バランス隊長",
+    caution: "自分の基準が強く、周囲に伝わりにくいことも。",
+  },
+};
 
 const characterProfiles = {
   TFCP: ["キャプテン・バランサー", "#2f9f7f", "#d9ad3c", "cap", "chart"],
@@ -164,7 +246,8 @@ const contactStep = document.querySelector("#contact-step");
 const contactForm = document.querySelector("#contact-form");
 const contactError = document.querySelector("#contact-error");
 const result = document.querySelector("#result");
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwL_JMNAk0XwenQPyFCwxOaVIaTHUPOJOhe-EQ3Xgxy83dAc8TYMD6c1zBlS33gc_eE1w/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzrq6SdJCpKCTUZdlOo1lfHR6iMeaREpLtN9aqHfgox_A3RwBb3Whkj719YNl86S8tn/exec";
+const SITE_URL = "https://fatepersonality.github.io/fatepersonality/index.html";
 
 let pendingScores = null;
 let pendingAnswers = null;
@@ -507,10 +590,17 @@ function buildCharacterSvg(main, accent, headwear, item) {
 function showResult(scores) {
   const code = getType(scores);
   const [name, copy] = typeProfiles[code];
+  const details = typeShareDetails[code];
   document.querySelector("#type-code").textContent = `(${code})`;
   document.querySelector("#type-name").textContent = name;
   document.querySelector("#type-copy").textContent = copy;
+  document.querySelector("#type-features").innerHTML = details.features.map((feature) => `<li>${feature}</li>`).join("");
+  document.querySelector("#type-match").textContent = details.match;
+  document.querySelector("#type-caution").textContent = details.caution;
   document.querySelector("#type-detail-link").href = `type-detail.html?type=${code}`;
+  document.querySelector("#share-message").textContent = `私は「${name}」でした。あなたは何タイプ？`;
+  document.querySelector("#copy-share-status").textContent = "";
+  document.querySelector("#copy-share-text").dataset.shareText = buildShareText(code);
   renderCharacter(code);
   document.querySelector("#result-date").textContent = new Intl.DateTimeFormat("ja-JP", {
     year: "numeric",
@@ -520,6 +610,15 @@ function showResult(scores) {
   renderScores(scores);
   result.hidden = false;
   result.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function buildShareText(code) {
+  const [name] = typeProfiles[code];
+  return `私は「${name}」でした！
+あなたは何タイプ？
+
+#FATE診断
+${SITE_URL}`;
 }
 
 function buildSubmission(user, scores) {
@@ -643,6 +742,31 @@ for (let age = 10; age <= 80; age += 1) {
 
 document.querySelector("#privacy-consent").addEventListener("change", (event) => {
   document.querySelector("#send-result").disabled = !event.target.checked;
+});
+
+document.querySelector("#copy-share-text").addEventListener("click", async (event) => {
+  const button = event.currentTarget;
+  const status = document.querySelector("#copy-share-status");
+  const text = button.dataset.shareText || `${SITE_URL}\n#FATE診断`;
+
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.append(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
+    }
+    status.textContent = "コピーしました";
+  } catch (error) {
+    status.textContent = "コピーできませんでした";
+  }
 });
 
 quiz.addEventListener("submit", async (event) => {
