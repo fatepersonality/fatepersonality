@@ -473,7 +473,7 @@ const uiText = {
     diagnose: "診断する",
     contactTitle: "診断結果を受け取る",
     contactCopy: "メールアドレスは入力しなくても診断できます。結果を自分に送信したい場合のみ入力してください。",
-    name: "名前",
+    name: "名前(ニックネーム)",
     email: "メールアドレス（任意）",
     age: "年齢",
     select: "選択してください",
