@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FATE診断 | 被服行動尺度</title>
     <link rel="stylesheet" href="styles.css" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYREDHEYFS"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-QYREDHEYFS');
-    </script>
   </head>
   <body>
     <header class="site-header">
@@ -84,11 +75,11 @@
         </p>
         <form id="contact-form" class="contact-form" novalidate>
           <label>
-            <span>名前（ニックネーム）</span>
+            <span>名前</span>
             <input id="user-name" name="name" type="text" autocomplete="name" required />
           </label>
           <label>
-            <span>メールアドレス（任意/入力するとメールアドレスに結果が送信されます）</span>
+            <span>メールアドレス（任意）</span>
             <input id="user-email" name="email" type="email" autocomplete="email" />
           </label>
           <label>
@@ -146,7 +137,7 @@
             </div>
             <p id="character-name" class="character-name"></p>
             <p id="type-copy" class="type-copy"></p>
-               <div class="type-snapshot">
+            <div class="type-snapshot">
               <div>
                 <h4>特徴</h4>
                 <ul id="type-features"></ul>
@@ -170,13 +161,13 @@
             <div id="score-list" class="trait-list"></div>
             <div class="result-date">診断日：<span id="result-date"></span></div>
           </div>
+        </div>
 
-          <div class="share-callout">
-            <p id="share-message">結果をスクリーンショットしてSNSでシェアしよう！</p>
-            <strong>#FATE診断</strong>
-            <button class="share-copy-button" type="button" id="copy-share-text">シェア文をコピー</button>
-            <span class="share-copy-status" id="copy-share-status" aria-live="polite"></span>
-          </div>
+        <div class="share-callout">
+          <p id="share-message">結果をスクリーンショットしてSNSでシェアしよう！</p>
+          <strong>#FATE診断</strong>
+          <button class="share-copy-button" type="button" id="copy-share-text">シェア文をコピー</button>
+          <span class="share-copy-status" id="copy-share-status" aria-live="polite"></span>
         </div>
       </section>
     </main>
