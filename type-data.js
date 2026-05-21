@@ -374,96 +374,192 @@ const typeDataEn = {
     character: "Captain Balancer",
     tagline: "A versatile type that balances trend, function, context, and price.",
     summary: "Balance Captain enjoys a modern look while checking comfort, usefulness, context, and price. This type is realistic, avoids waste, and can add freshness without losing practicality.",
+    sections: {
+      style: "This type balances information gathering with practical judgment. It notices trends through social media and stores, then calmly checks whether an item is easy to move in, easy to care for, useful across situations, and worth the price.",
+      strengths: "Balance Captain can organize a wardrobe without overdoing it. This type is good at choosing pieces that work for school, work, weekends, and casual plans, creating a reliable style that still feels current.",
+      blindspots: "Because this type checks many conditions, it may miss clothes that feel exciting at first sight. Sometimes choosing one item simply because it feels fresh can add personality and breathing room to the outfit.",
+      advice: "Start with practical basics and update one visible detail. Shoes, bags, color, or silhouette can bring freshness while keeping the steady balance that suits this type.",
+    },
   },
   TFCQ: {
     name: "Quality Strategist",
     character: "Silk Strategist",
     tagline: "A strategic type that turns trends into long-lasting quality.",
     summary: "Quality Strategist does not simply chase trends. This type edits trends into pieces that fit daily life, while valuing function, TPO, materials, and construction.",
+    sections: {
+      style: "This type observes new designs and brands carefully, then selects the ones that can last. Practical conditions such as breathability, durability, and mix-and-match potential matter, but texture and construction matter too.",
+      strengths: "Quality Strategist can connect short-term trend awareness with long-term satisfaction. Because this type does not choose only by low price, purchases often feel more convincing and dependable.",
+      blindspots: "High standards can sometimes make small experiments feel difficult. Creating a low-risk trial zone with accessories, inner layers, or sale items can keep the style flexible.",
+      advice: "Separate investment pieces from playful pieces. Coats, shoes, and bags can be higher quality, while colors and inner layers can change more lightly.",
+    },
   },
   OFCP: {
     name: "Classic Planner",
     character: "Classic Navigator",
     tagline: "A steady type that chooses by function, context, and price rather than trends.",
     summary: "Classic Planner chooses clothes that reliably work in everyday life. This type values usefulness, appropriate situations, and reasonable price, creating a stable wardrobe.",
+    sections: {
+      style: "This type prioritizes choices that are unlikely to fail. It prefers standard colors, manageable materials, and shapes that can be used for a long time, often shopping backward from actual needs.",
+      strengths: "Classic Planner avoids unnecessary purchases and keeps the wardrobe easy to use. Because this type is aware of context, it can create a calm and trustworthy impression in first meetings and public situations.",
+      blindspots: "Safe choices can make the impression feel fixed. You do not need to chase trends, but updating one detail such as shoe shape, pant length, or fabric texture can make the look feel more current.",
+      advice: "Add a small change in material or silhouette to familiar basics. This improves polish without forcing a dramatic change.",
+    },
   },
   OFCQ: {
     name: "Heritage Curator",
     character: "Heritage Librarian",
     tagline: "A type that selects classic, quality, polished items by personal standards.",
     summary: "Heritage Curator values personal taste and trustworthy quality more than short-lived trends. The result is calm, careful, and appropriate styling.",
+    sections: {
+      style: "This type is drawn to materials, tailoring, and designs that can be used for years. Classic, minimal, and elegant practical items feel more convincing than short-lived trend pieces.",
+      strengths: "Heritage Curator creates consistency and trust. With a strong eye for quality, this type can build a small but carefully selected wardrobe.",
+      blindspots: "A strong sense of completion can make it harder to step into a new mood. Adding a little color, pattern, or seasonal detail can soften the impression without breaking personal standards.",
+      advice: "Use high-quality classics as the base, then add one new element each season. Scarves, socks, bags, or small accessories are natural starting points.",
+    },
   },
   TFEP: {
     name: "Street Engineer",
     character: "Street Engineer",
     tagline: "An active type that combines trend, function, and freedom.",
     summary: "Street Engineer enjoys movement and a current mood at the same time. This type uses practical items in individual, streetwise combinations.",
+    sections: {
+      style: "This type works well with sneakers, bags, outdoor details, sporty materials, and practical clothing. Trends are appealing, but the key question is whether the item can be used freely and actively.",
+      strengths: "Street Engineer creates a light, friendly, and energetic impression. This type can mix secondhand pieces, mass-market items, and limited releases while keeping cost under control.",
+      blindspots: "Because the style is free, it can look too casual in some settings. For important occasions, reducing colors, cleaning up the shoes, or choosing a neater jacket can change the impression quickly.",
+      advice: "Add one clean element to functional clothing. A base of white, gray, or black with one trend color or accessory keeps the outfit natural and sharp.",
+    },
   },
   TFEQ: {
     name: "Urban Inventor",
     character: "Metro Inventor",
     tagline: "An experimental type that mixes individuality, trend, function, and quality.",
     summary: "Urban Inventor treats clothes as tools for better living and personal expression. This type is drawn to new structures, technical materials, and meaningful design.",
+    sections: {
+      style: "This type is attracted to tech materials, unusual silhouettes, functional bags, and well-designed shoes. Within trends, it often notices structure, mechanism, and new ideas.",
+      strengths: "Urban Inventor creates outfits that feel original but still practical. This type is good at discovering new brands and products, giving the style a fresh and convincing edge.",
+      blindspots: "Strong preferences can sometimes feel distant or difficult to approach. Mixing in softer materials or familiar colors helps balance innovation with everyday warmth.",
+      advice: "Choose one experimental main item and let the rest support it quietly. Shoes or outerwear are especially effective places to show this type's character.",
+    },
   },
   OFEP: {
     name: "Utility Crafter",
     character: "Utility Maker",
     tagline: "A practical type that values usability and cost performance.",
     summary: "Utility Crafter chooses clothes as everyday tools. Comfort, durability, easy care, and price satisfaction matter more than trend or attention.",
+    sections: {
+      style: "This type suits workwear, outdoor items, and casual basics. Rather than decorating clothes beautifully, it values clothes that can be used, worn, and lived in.",
+      strengths: "Utility Crafter creates a natural style rooted in real life. Price judgment is realistic, and this type is good at choosing what is needed without excess.",
+      blindspots: "When convenience becomes too important, the outfit may look rough in certain situations. Clean materials and good fit can raise the impression while keeping practicality.",
+      advice: "Upgrade the most visible everyday item. Better shoes, a sharper jacket, or a more structured bag can tighten the whole look.",
+    },
   },
   OFEQ: {
     name: "Gear Artisan",
     character: "Gear Master",
     tagline: "A type that pursues personal standards of function and quality.",
     summary: "Gear Artisan looks deeply at structure, materials, and long-term value. This type chooses by conviction rather than popularity.",
+    sections: {
+      style: "This type likes specialized clothing, tool-like pieces, and designs with a reason behind every detail. Clothes are selected to improve daily performance rather than to match the crowd.",
+      strengths: "Gear Artisan has clear reasons behind each choice, which often creates long-term satisfaction. The style may not be flashy, but it has a quiet persuasiveness for people who notice details.",
+      blindspots: "Focusing too much on function and quality can reduce attention to how others read the outfit. Adding cleanliness, softness, or contextual adjustment makes the appeal easier to understand.",
+      advice: "Let one carefully chosen item become the main character and keep the rest simple. Aim for quality that communicates even without explanation.",
+    },
   },
   TACP: {
     name: "Smart Stylist",
     character: "Smart Style Guide",
     tagline: "A polished type that balances appearance, trend, context, and price.",
     summary: "Smart Stylist is good at creating a pleasant impression. This type updates style with trend elements while keeping the look suitable and approachable.",
+    sections: {
+      style: "This type understands how clothing is seen by others and adjusts based on place, people, and occasion. Even without expensive items, it can create polish through color coordination and accessories.",
+      strengths: "Smart Stylist blends into the setting while adding a little brightness. Others are likely to see this type as thoughtful, clean, and modern.",
+      blindspots: "If outside opinions and trends become too important, personal preference can move into the background. Keeping one favorite color or shape makes the impression more natural.",
+      advice: "When keeping costs low, focus on shoes, hair, and bags rather than changing every piece of clothing. Small areas can strongly shape the whole impression.",
+    },
   },
   TACQ: {
     name: "Luxury Director",
     character: "Luxury Director",
     tagline: "A refined type that values appearance, TPO, trend, and quality.",
     summary: "Luxury Director treats clothing as impression design. This type is sensitive to materials, silhouette, and the atmosphere of each occasion.",
+    sections: {
+      style: "This type judges silhouette, material, brand feeling, cleanliness, and context together. Rather than simply choosing low price, it values visual authority and quality that can be trusted.",
+      strengths: "Luxury Director performs well in public-facing moments and important plans. This type can create a refined presence that lifts not only the self but also the atmosphere around them.",
+      blindspots: "Because the desire for completion is high, clothing choices can sometimes feel tense. Separating polished days from intentionally relaxed days creates more ease.",
+      advice: "Pair one high-quality main item with a trend accessory. When quality is the foundation, trend elements are less likely to look shallow.",
+    },
   },
   OACP: {
     name: "Simple Coordinator",
     character: "Minimal Coordinator",
     tagline: "A calm type that values harmony between appearance and context.",
     summary: "Simple Coordinator prefers natural harmony over loud trends. This type creates a clean, reassuring impression with simple shapes and balanced colors.",
+    sections: {
+      style: "This type prefers basic, well-organized clothing and values natural harmony over strong statements. It checks whether the item has a clear use and whether the price feels reasonable.",
+      strengths: "Simple Coordinator gives a sense of ease and approachability. The outfit rarely feels excessive, which makes it suitable for school, work, and everyday life.",
+      blindspots: "When choices stay too modest, the impression can become vague. Paying attention to contrast, texture, or shape adds depth while keeping the style simple.",
+      advice: "Add one item with a clear outline. Clean shoes, a well-shaped jacket, or a textured bag can make the whole outfit sharper.",
+    },
   },
   OACQ: {
     name: "Elegant Collector",
     character: "Elegance Collector",
     tagline: "A type that quietly enjoys personal taste and quality.",
     summary: "Elegant Collector chooses refined items that match personal taste. This type values depth of color, texture, and quiet quality.",
+    sections: {
+      style: "This type is sensitive to fabric drape, depth of color, and beautiful shape. It prefers items that remain visually satisfying over time rather than loud logos or sudden trends.",
+      strengths: "Elegant Collector has quiet glamour and can be memorable without being loud. Investing in quality feels natural, and the wardrobe can mature over time.",
+      blindspots: "When the preferred worldview becomes fixed, freshness may become harder to add. Keeping classic shapes while changing materials or accessories is an easy update.",
+      advice: "Choose your standard colors, then keep one accent color. This gives focus to a quiet outfit and makes quality easier to see.",
+    },
   },
   TAEP: {
     name: "Pop Messenger",
     character: "Pop Messenger",
     tagline: "An expressive type that enjoys trends freely with price awareness.",
     summary: "Pop Messenger uses fashion to express mood and personality. This type responds quickly to trends and enjoys color, shape, and playful details.",
+    sections: {
+      style: "This type is comfortable changing impressions with color, pattern, silhouette, and accessories. Enjoyment, photo impact, and difference from others often become important standards.",
+      strengths: "Pop Messenger is bright and memorable, with the power to move the atmosphere around them. Because expensive items are not required, this type can experiment often.",
+      blindspots: "Strong expression can sometimes create a gap with the place or people around you. For important settings, reducing the number of colors can quickly organize the impression.",
+      advice: "Limit the playful item to one main focus and keep the rest simple. Trend items at a reasonable price are best enjoyed with a clear period of use.",
+    },
   },
   TAEQ: {
     name: "Mode Star",
     character: "Mode Star",
     tagline: "A vivid type that enjoys trend, expression, and quality.",
     summary: "Mode Star uses clothing to create presence and worldview. This type can handle bold silhouettes, strong materials, and memorable styling.",
+    sections: {
+      style: "This type is drawn to new designs, memorable silhouettes, and high-quality materials. Clothing often becomes the center of self-expression, sometimes changing the atmosphere of the place.",
+      strengths: "Mode Star has both vividness and credibility. Because this type cares about material and completion, the style can be individual without looking cheap.",
+      blindspots: "When too many strong items compete, the viewer may lose the focus. Creating space around the main item makes the expression more powerful.",
+      advice: "Decide the main character of the outfit and let the rest act as the stage. Shoes, hair, and accessories should support one unified direction.",
+    },
   },
   OAEP: {
     name: "Free Designer",
     character: "Free Designer",
     tagline: "A creative type that values personal appearance and realistic price sense.",
     summary: "Free Designer values a look that feels personally right. This type can build atmosphere through combinations, vintage pieces, and small styling ideas.",
+    sections: {
+      style: "This type edits clothing through personal feeling, using vintage pieces, recombinations, color choices, and accessories. It values mood and taste without over-adjusting to others.",
+      strengths: "Free Designer has natural individuality. Because this type does not rely only on expensive clothing, the outfit often feels human, creative, and personal.",
+      blindspots: "Moving freely toward what you like can delay adjustment to the situation. Basic cleanliness and good fit help individuality come across more positively.",
+      advice: "Keep your personal color or shape, but organize the base. White, black, gray, or navy can stabilize the outfit while letting one favorite piece stand out.",
+    },
   },
   OAEQ: {
     name: "Signature Artist",
     character: "Signature Creator",
     tagline: "A type that follows a personal worldview and quality standards.",
     summary: "Signature Artist treats clothing as a way to shape a personal world. This type values meaning, quality, and aesthetic consistency over trends.",
+    sections: {
+      style: "This type often has a strong sense of color, material, silhouette, and brand worldview. It values personal conviction more than broad approval, building a consistent story through clothing.",
+      strengths: "Signature Artist combines strong individuality with a sense of quality. Instead of easy trends, this type gathers pieces chosen through a personal eye, creating a one-of-a-kind impression.",
+      blindspots: "A strong worldview can sometimes create distance in certain contexts. Keeping the preferred material or color while adjusting only the shape can make the message smoother.",
+      advice: "Grow items that can become your signature. Investing in shoes, coats, or accessories that last for years deepens this type's appeal.",
+    },
   },
 };
 
@@ -498,7 +594,6 @@ const typeGroupsEn = [
   },
 ];
 
-
 function getTypeGroup(code) {
   return typeGroups.find((group) => group.codes.includes(code));
 }
@@ -506,3 +601,4 @@ function getTypeGroup(code) {
 function getTypeColor(code) {
   return getTypeGroup(code)?.color || typeData[code].color;
 }
+
