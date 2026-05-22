@@ -1,14 +1,16 @@
-const list = document.querySelector("#type-category-list");
-const fashionLangs = ["ja", "en"];
-const fashionParams = new URLSearchParams(window.location.search);
-let fashionLang = fashionLangs.includes(fashionParams.get("lang"))
-  ? fashionParams.get("lang")
+var list = document.querySelector("#type-category-list");
+var fashionLangs = ["ja", "en"];
+var fashionParams = new URLSearchParams(window.location.search);
+var requestedFashionLang = fashionParams.get("lang");
+var fashionLang = fashionLangs.indexOf(requestedFashionLang) !== -1
+  ? requestedFashionLang
   : localStorage.getItem("fateLanguage") || "ja";
-if (!fashionLangs.includes(fashionLang)) {
+
+if (fashionLangs.indexOf(fashionLang) === -1) {
   fashionLang = "ja";
 }
 
-const fashionText = {
+var fashionText = {
   ja: {
     title: "ファッションタイプ | FATE診断",
     nav: ["診断", "FATE診断とは", "ファッションタイプ"],
@@ -28,66 +30,115 @@ const fashionText = {
 };
 
 function setupFashionLanguage() {
-  const text = fashionText[fashionLang];
+  var text = fashionText[fashionLang];
+  var brand = document.querySelector(".site-nav__brand");
+  var pageTitle = document.querySelector("#type-page-title");
+  var heroCopy = document.querySelector(".type-page-hero p:last-child");
+  var footerCopy = document.querySelector("footer p:first-child");
+
   document.documentElement.lang = fashionLang;
   document.title = text.title;
   localStorage.setItem("fateLanguage", fashionLang);
-  document.querySelectorAll(".site-nav__links a").forEach((link, index) => {
+
+  document.querySelectorAll(".site-nav__links a").forEach(function (link, index) {
     link.textContent = text.nav[index];
-    const href = link.getAttribute("href").split("?")[0];
-    link.href = `${href}?lang=${fashionLang}`;
+    link.href = link.getAttribute("href").split("?")[0] + "?lang=" + fashionLang;
   });
-  document.querySelector(".site-nav__brand").href = `index.html?lang=${fashionLang}`;
-  document.querySelector("#type-page-title").textContent = text.heroTitle;
-  document.querySelector(".type-page-hero p:last-child").textContent = text.heroCopy;
-  document.querySelector("footer p:first-child").textContent = text.footer;
-  document.querySelectorAll("[data-lang-choice]").forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.langChoice === fashionLang);
-    button.setAttribute("aria-pressed", String(button.dataset.langChoice === fashionLang));
+
+  if (brand) {
+    brand.href = "index.html?lang=" + fashionLang;
+  }
+  if (pageTitle) {
+    pageTitle.textContent = text.heroTitle;
+  }
+  if (heroCopy) {
+    heroCopy.textContent = text.heroCopy;
+  }
+  if (footerCopy) {
+    footerCopy.textContent = text.footer;
+  }
+
+  document.querySelectorAll("[data-lang-choice]").forEach(function (button) {
+    var isActive = button.dataset.langChoice === fashionLang;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
   });
 }
 
-document.querySelectorAll("[data-lang-choice]").forEach((button) => {
-  button.addEventListener("click", () => {
+document.querySelectorAll("[data-lang-choice]").forEach(function (button) {
+  button.addEventListener("click", function () {
     fashionLang = button.dataset.langChoice;
     localStorage.setItem("fateLanguage", fashionLang);
-    window.location.href = `fashion-types.html?lang=${fashionLang}`;
+    window.location.href = "fashion-types.html?lang=" + fashionLang;
   });
 });
 
 function renderTypeCard(code) {
-  const type = fashionLang === "en" ? { ...typeData[code], ...typeDataEn[code] } : typeData[code];
-  return `
-    <a class="fashion-type-card" style="--type-color: ${getTypeColor(code)}" href="type-detail.html?type=${code}&lang=${fashionLang}">
-      <div class="fashion-type-card__visual">
-        <img src="${type.image}" alt="${type.name}" loading="lazy" />
-      </div>
-      <div class="fashion-type-card__body">
-        <small>${code}</small>
-        <h3>${type.name}</h3>
-        <p>${type.tagline}</p>
-      </div>
-    </a>
-  `;
+  var type = fashionLang === "en"
+    ? Object.assign({}, typeData[code], typeDataEn[code])
+    : typeData[code];
+
+  return [
+    '<a class="fashion-type-card" style="--type-color: ',
+    getTypeColor(code),
+    '" href="type-detail.html?type=',
+    code,
+    "&lang=",
+    fashionLang,
+    '">',
+    '<div class="fashion-type-card__visual">',
+    '<img src="',
+    type.image,
+    '" alt="',
+    type.name,
+    '" loading="lazy" />',
+    "</div>",
+    '<div class="fashion-type-card__body">',
+    "<small>",
+    code,
+    "</small>",
+    "<h3>",
+    type.name,
+    "</h3>",
+    "<p>",
+    type.tagline,
+    "</p>",
+    "</div>",
+    "</a>",
+  ].join("");
 }
 
 function renderFashionTypes() {
-  const groups = fashionLang === "en" ? typeGroupsEn : typeGroups;
+  var groups = fashionLang === "en" ? typeGroupsEn : typeGroups;
+
+  if (!list) {
+    return;
+  }
+
   list.innerHTML = groups
-    .map(
-      (group) => `
-      <section class="panel type-category" style="--type-color: ${group.color}" aria-labelledby="${group.id}">
-        <h2 id="${group.id}">${group.title}</h2>
-        <p class="type-category__copy">${group.copy}</p>
-        <div class="type-grid">
-          ${group.codes.map(renderTypeCard).join("")}
-        </div>
-      </section>
-    `,
-    )
+    .map(function (group) {
+      return [
+        '<section class="panel type-category" style="--type-color: ',
+        group.color,
+        '" aria-labelledby="',
+        group.id,
+        '">',
+        '<h2 id="',
+        group.id,
+        '">',
+        group.title,
+        "</h2>",
+        '<p class="type-category__copy">',
+        group.copy,
+        "</p>",
+        '<div class="type-grid">',
+        group.codes.map(renderTypeCard).join(""),
+        "</div>",
+        "</section>",
+      ].join("");
+    })
     .join("");
 }
 
 setupFashionLanguage();
 renderFashionTypes();
-
